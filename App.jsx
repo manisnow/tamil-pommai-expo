@@ -1,0 +1,456 @@
+import React, { useEffect, useRef, useState } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Platform, Animated, Dimensions } from "react-native";
+import SpeechAdapter from "./src/utils/SpeechAdapter";
+import LottieWrapper from "./src/components/LottieWrapper";
+
+/*
+  Place your animation JSONs under ./assets and import them:
+  import sitAnim from './assets/sit.json';
+  import walkAnim from './assets/walk.json';
+  ...
+*/
+import sitAnim from "./assets/sit.json";
+import walkAnim from "./assets/walk.json";
+import danceAnim from "./assets/dance.json";
+import jumpAnim from "./assets/jump.json";
+import runAnim from "./assets/run1.json";
+import tamilLetters from "./assets/tamil-letters.json";
+
+const animations = { sit: sitAnim, walk: walkAnim, dance: danceAnim, jump: jumpAnim, run: runAnim };
+
+const commandMap = [
+  { key: "dance", triggers: ["நடனமாடு", "நடனம்", "நர்த்தனம்"] },  // Longer commands first
+  { key: "sit", triggers: ["உக்காரு", "உட்காரு", "உக்கார்", "உட்கார்"] },
+  { key: "run", triggers: ["ஓடு", "ஓட", "ஓடி", "ஓடுங்கள்"] },
+  { key: "jump", triggers: ["குதி", "குதிக்க", "தாவு"] },
+  { key: "walk", triggers: ["நடை", "நடக்க", "வா", "நடந்து"] }  // Removed "நட" to avoid conflicts
+];
+
+// Create a comprehensive letter mapping for Tamil letters
+const createLetterMap = () => {
+  const letterMap = [];
+  
+  // Add vowels with simple triggers
+  tamilLetters.vowels.forEach(letterInfo => {
+    const letter = letterInfo.letter;
+    const triggers = [
+      letter,
+      letterInfo.name,
+      letterInfo.sound + "கரम்",
+      letterInfo.name.replace("கரம்", "")
+    ].filter(t => t && t.trim().length > 0);
+    
+    letterMap.push({
+      key: "letter",
+      letter: letter,
+      name: letterInfo.name,
+      triggers: triggers
+    });
+  });
+  
+  // Add consonants with simple triggers
+  tamilLetters.consonants.forEach(letterInfo => {
+    const letter = letterInfo.letter;
+    const baseLetter = letter.replace("்", ""); // Remove pulli for base form
+    const triggers = [
+      baseLetter,  // Put base form first for better matching
+      letter,
+      letterInfo.name,
+      baseLetter + "கரம்",
+      letterInfo.name.replace("கரம்", "")
+    ].filter(t => t && t.trim().length > 0);
+    
+    letterMap.push({
+      key: "letter",
+      letter: baseLetter, // Display the base form without pulli
+      name: letterInfo.name,
+      triggers: triggers
+    });
+  });
+  
+  // Add some common combined letters with simple triggers
+  tamilLetters.combined.slice(0, 20).forEach(letterInfo => { // Limit to first 20 to avoid overwhelming
+    const letter = letterInfo.letter;
+    const triggers = [
+      letter,
+      letterInfo.sound
+    ].filter(t => t && t.trim().length > 0);
+    
+    letterMap.push({
+      key: "letter",
+      letter: letter,
+      name: letterInfo.name,
+      triggers: triggers
+    });
+  });
+  
+  return letterMap;
+};
+
+const letterMap = createLetterMap();
+
+const normalizeText = (s = "") => 
+  s.trim()
+   .replaceAll(/[.,।\s]+/gu, " ")  // Replace Tamil and English punctuation with spaces
+   .replaceAll(/[^\p{L}\p{N}\s]+/gu, "")  // Remove other non-letter/number characters
+   .replaceAll(/\s+/g, " ")  // Normalize multiple spaces
+   .trim();
+
+export default function App() {
+  const [message, setMessage] = useState("தொடர்ந்து கேட்க அழுத்தவும்... (Press to start continuous listening)");
+  const [current, setCurrent] = useState("sit");
+  const [listening, setListening] = useState(false);
+  const [currentLetter, setCurrentLetter] = useState(null); // For displaying Tamil letters
+  const [showLetter, setShowLetter] = useState(false); // Toggle between animation and letter view
+  const adapterRef = useRef(SpeechAdapter);
+  const messageTimeoutRef = useRef(null);
+  const scrollX = useRef(new Animated.Value(0)).current;
+  const screenWidth = Dimensions.get('window').width;
+
+  useEffect(() => {
+    try { adapterRef.current.init(); } catch (e) { console.warn(e); }
+    adapterRef.current.onResult(({ raw, final }) => {
+      const text = normalizeText(raw);
+      console.log('📢 Voice input received:', { raw, text, final });
+      console.log('🔍 Character codes:', Array.from(raw).map(char => `${char}(${char.charCodeAt(0)})`));
+      setMessage(`நீங்கள் சொன்னது: ${raw}`);
+      
+      // Split the text by common delimiters and check each word
+      const words = text.split(/[\s.,।]+/).filter(word => word.length > 0);
+      console.log('📝 Words detected:', words);
+      console.log('🔤 Available letter triggers (first 10):', letterMap.slice(0, 10).map(l => `${l.letter}: [${l.triggers.join(', ')}]`));
+      
+      // First, try exact matches for complete words
+      for (const word of words) {
+        // Check for letter matches first
+        for (const letterInfo of letterMap) {
+          for (const trigger of letterInfo.triggers) {
+            const normalizedTrigger = normalizeText(trigger);
+            if (word === normalizedTrigger) {
+              console.log(`✅ Letter match found: "${word}" === "${normalizedTrigger}" → ${letterInfo.letter}`);
+              setCurrentLetter(letterInfo);
+              setShowLetter(true);
+              setMessage(`எழுத்து: ${letterInfo.letter} (${letterInfo.name})`);
+              
+              // Clear success message after 3 seconds but keep letter displayed
+              if (messageTimeoutRef.current) {
+                clearTimeout(messageTimeoutRef.current);
+              }
+              messageTimeoutRef.current = setTimeout(() => {
+                if (listening) {
+                  setMessage("தொடர்ந்து கேட்கப்படுகிறது... எந்த நேரமும் பேசலாம்!");
+                }
+              }, 3000);
+              
+              return;
+            }
+          }
+        }
+        
+        // Then check for animation commands
+        for (const command of commandMap) {
+          for (const trigger of command.triggers) {
+            const normalizedTrigger = normalizeText(trigger);
+            if (word === normalizedTrigger) {
+              console.log(`✅ Exact match found: "${word}" === "${normalizedTrigger}" → ${command.key}`);
+              setCurrent(command.key);
+              setShowLetter(false);
+              setMessage(`கட்டளை: ${trigger} → ${command.key}`);
+              
+              // Clear success message after 2 seconds
+              if (messageTimeoutRef.current) {
+                clearTimeout(messageTimeoutRef.current);
+              }
+              messageTimeoutRef.current = setTimeout(() => {
+                if (listening) {
+                  setMessage("தொடர்ந்து கேட்கப்படுகிறது... எந்த நேரமும் பேசலாம்!");
+                }
+              }, 2000);
+              
+              return;
+            }
+          }
+        }
+      }
+      
+      // If no exact matches, try partial matches (longest trigger first)
+      const allTriggers = [];
+      
+      // Add letter triggers
+      for (const letterInfo of letterMap) {
+        for (const trigger of letterInfo.triggers) {
+          allTriggers.push({
+            type: "letter",
+            command: letterInfo.key,
+            trigger,
+            letterInfo: letterInfo,
+            normalizedTrigger: normalizeText(trigger),
+            length: normalizeText(trigger).length
+          });
+        }
+      }
+      
+      // Add animation command triggers
+      for (const command of commandMap) {
+        for (const trigger of command.triggers) {
+          allTriggers.push({
+            type: "animation",
+            command: command.key,
+            trigger,
+            normalizedTrigger: normalizeText(trigger),
+            length: normalizeText(trigger).length
+          });
+        }
+      }
+      
+      // Sort by length (longest first) for partial matching
+      allTriggers.sort((a, b) => b.length - a.length);
+      
+      console.log('🔍 Checking partial matches with triggers sorted by length:', allTriggers.map(t => `${t.trigger}(${t.length})`));
+      
+      for (const word of words) {
+        for (const triggerInfo of allTriggers) {
+          const { type, command, trigger, normalizedTrigger, letterInfo } = triggerInfo;
+          
+          // For letters, be more lenient with matching (single characters)
+          const minLength = type === "letter" ? 1 : 4;
+          
+          if (word.includes(normalizedTrigger) && normalizedTrigger.length >= minLength) {
+            console.log(`✅ Partial match found: "${word}".includes("${normalizedTrigger}") → ${type}:${command}`);
+            
+            if (type === "letter") {
+              console.log(`🔤 Letter matched: ${letterInfo.letter} (${letterInfo.name})`);
+              setCurrentLetter(letterInfo);
+              setShowLetter(true);
+              setMessage(`எழுத்து: ${letterInfo.letter} (${letterInfo.name})`);
+              
+              // Clear success message after 3 seconds but keep letter displayed
+              if (messageTimeoutRef.current) {
+                clearTimeout(messageTimeoutRef.current);
+              }
+              messageTimeoutRef.current = setTimeout(() => {
+                if (listening) {
+                  setMessage("தொடர்ந்து கேட்கப்படுகிறது... எந்த நேரமும் பேசலாம்!");
+                }
+              }, 3000);
+            } else {
+              setCurrent(command);
+              setShowLetter(false);
+              setMessage(`கட்டளை: ${trigger} → ${command}`);
+              
+              // Clear success message after 2 seconds
+              if (messageTimeoutRef.current) {
+                clearTimeout(messageTimeoutRef.current);
+              }
+              messageTimeoutRef.current = setTimeout(() => {
+                if (listening) {
+                  setMessage("தொடர்ந்து கேட்கப்படுகிறது... எந்த நேரமும் பேசலாம்!");
+                }
+              }, 2000);
+            }
+            
+            return;
+          }
+        }
+      }
+      
+      // Special handling for single Tamil characters (fallback)
+      if (text.length === 1 || words.some(word => word.length === 1)) {
+        console.log('🔤 Checking for single Tamil character:', text);
+        
+        // Check if the input contains any Tamil letter directly
+        for (const letterInfo of letterMap) {
+          if (text.includes(letterInfo.letter) || words.includes(letterInfo.letter)) {
+            console.log(`✅ Direct Tamil letter match found: ${letterInfo.letter}`);
+            setCurrentLetter(letterInfo);
+            setShowLetter(true);
+            setMessage(`எழுத்து: ${letterInfo.letter} (${letterInfo.name})`);
+            
+            // Clear success message after 3 seconds but keep letter displayed
+            if (messageTimeoutRef.current) {
+              clearTimeout(messageTimeoutRef.current);
+            }
+            messageTimeoutRef.current = setTimeout(() => {
+              if (listening) {
+                setMessage("தொடர்ந்து கேட்கப்படுகிறது... எந்த நேரமும் பேசலாம்!");
+              }
+            }, 3000);
+            
+            return;
+          }
+        }
+      }
+      
+      // If no command found and it's a final result, show the error
+      if (final) {
+        console.log(`❌ No match found for words: ${words.join(', ')}`);
+        setMessage(`அறிய முடியவில்லை: ${raw}`);
+      }
+    });
+    adapterRef.current.onError((e) => { 
+      console.error('🚨 Speech adapter error:', e); 
+      setMessage("குரல் பிழை"); 
+    });
+
+    // Start scrolling animation
+    const startScrolling = () => {
+      scrollX.setValue(screenWidth);
+      
+      const scrollAnimation = Animated.loop(
+        Animated.sequence([
+          Animated.timing(scrollX, {
+            toValue: -1000, // Move off screen to the left
+            duration: 20000, // 20 seconds for full scroll
+            useNativeDriver: true,
+          }),
+          Animated.timing(scrollX, {
+            toValue: screenWidth, // Reset to start position
+            duration: 0, // Instant reset
+            useNativeDriver: true,
+          }),
+        ]),
+        {
+          iterations: -1, // Infinite loop
+        }
+      );
+      
+      scrollAnimation.start();
+      
+      // Return cleanup function
+      return () => scrollAnimation.stop();
+    };
+
+    const cleanup = startScrolling();
+    
+    // Cleanup on unmount
+    return cleanup;
+  }, [screenWidth]);
+
+  const toggleListen = async () => {
+    if (listening) {
+      adapterRef.current.stop();
+      setListening(false);
+      setMessage("நிறுத்தப்பட்டது");
+      return;
+    }
+    
+    try {
+      if (Platform.OS !== "web") {
+        // request permission flow for native if needed
+      }
+      adapterRef.current.start();
+      setListening(true);
+      setMessage("தொடர்ந்து கேட்கப்படுகிறது... எந்த நேரமும் பேசலாம்!");
+    } catch (e) {
+      console.error(e);
+      setMessage("மொத்தம் துவங்க முடியவில்லை");
+    }
+  };
+
+  return (
+    <SafeAreaView style={styles.root}>
+      <View style={styles.scroller}>
+        <Animated.Text 
+          style={[
+            styles.scrollerText, 
+            {
+              transform: [{ translateX: scrollX }]
+            }
+          ]}
+        >
+          உக்காரு (Sit)   •   நடை (Walk)   •   நடனமாடு (Dance)   •   குதி (Jump)   •   ஓடு (Run)   •   அ ஆ இ ஈ உ ஊ (Letters)   •   க ங ச ஞ ட ண (Letters)   •   உக்காரு (Sit)   •   நடை (Walk)   •   நடனமாடு (Dance)   •   குதி (Jump)   •   ஓடு (Run)   •   அ ஆ இ ஈ உ ஊ (Letters)
+        </Animated.Text>
+      </View>
+      
+      <View style={styles.container}>
+
+        <Text style={styles.title}>தமிழ் பொம்மை விளையாட்டு 🎭</Text>
+
+        {showLetter && currentLetter ? (
+          <View style={styles.letterContainer}>
+            <Text style={styles.letterDisplay}>{currentLetter.letter}</Text>
+            <Text style={styles.letterName}>{currentLetter.name}</Text>
+            <Text style={styles.letterDescription}>தமிழ் எழுத்து</Text>
+          </View>
+        ) : (
+          <LottieWrapper animationData={animations[current]} style={{ width: 300, height: 300 }} />
+        )}
+
+        <TouchableOpacity style={styles.button} onPress={toggleListen}>
+          <Text style={styles.buttonText}>{listening ? "⏹️ நிறுத்துங்கள்" : "🎤 தொடர்ந்து கேட்க"}</Text>
+        </TouchableOpacity>
+
+        <Text style={styles.message}>{message}</Text>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  root: { 
+    flex: 1, 
+    backgroundColor: "#fff"
+  },
+  container: { 
+    flex: 1, 
+    alignItems: "center", 
+    justifyContent: "center", 
+    paddingHorizontal: 16,
+    paddingVertical: 20
+  },
+  scroller: { 
+    width: "100%", 
+    height: 40, 
+    overflow: "hidden", 
+    backgroundColor: "#f5f5f5", 
+    borderBottomWidth: 2, 
+    borderBottomColor: "#ffcc00", 
+    justifyContent: "center",
+    position: "relative"
+  },
+  scrollerText: { 
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#333",
+    position: "absolute",
+    whiteSpace: "nowrap"
+  },
+  letterContainer: {
+    width: 300,
+    height: 300,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#f8f9fa",
+    borderRadius: 20,
+    borderWidth: 3,
+    borderColor: "#007bff",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5
+  },
+  letterDisplay: {
+    fontSize: 120,
+    fontWeight: "bold",
+    color: "#007bff",
+    textAlign: "center",
+    marginBottom: 10
+  },
+  letterName: {
+    fontSize: 24,
+    fontWeight: "600",
+    color: "#495057",
+    textAlign: "center",
+    marginBottom: 5
+  },
+  letterDescription: {
+    fontSize: 16,
+    color: "#6c757d",
+    textAlign: "center"
+  },
+  title: { fontSize: 24, marginBottom: 8, fontWeight: "600" },
+  button: { backgroundColor: "#ffcc00", paddingHorizontal: 18, paddingVertical: 10, borderRadius: 10, marginTop: 12 },
+  buttonText: { fontSize: 18 },
+  message: { marginTop: 14, fontSize: 16, textAlign: "center" }
+});

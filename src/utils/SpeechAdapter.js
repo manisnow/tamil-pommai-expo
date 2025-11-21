@@ -1,0 +1,152 @@
+import { Platform } from "react-native";
+
+const isWeb = Platform.OS === "web";
+
+function createWebAdapter() {
+  let rec = null;
+  let onResult = () => {};
+  let onError = () => {};
+  let isListening = false;
+  let restartTimeout = null;
+  const SpeechRecognition = typeof globalThis !== "undefined" && 
+    globalThis.window && 
+    (globalThis.window.SpeechRecognition || globalThis.window.webkitSpeechRecognition);
+  
+  const startRecognition = () => {
+    if (!rec || !isListening) return;
+    
+    try {
+      rec.start();
+      console.log('Speech recognition started');
+    } catch (error) {
+      console.log('Error starting recognition:', error);
+      if (isListening && error.name === 'InvalidStateError') {
+        // Recognition is already running, this is ok
+        return;
+      }
+      // Try again after a short delay
+      if (isListening) {
+        setTimeout(startRecognition, 1000);
+      }
+    }
+  };
+  
+  return {
+    init() {
+      if (!SpeechRecognition) throw new Error("Web Speech API not available");
+      rec = new SpeechRecognition();
+      rec.lang = "ta-IN";
+      rec.interimResults = true;
+      rec.maxAlternatives = 1;
+      rec.continuous = false; // Set to false and manually restart for better control
+      
+      rec.onstart = () => {
+        console.log('Speech recognition started');
+      };
+      
+      rec.onresult = (e) => {
+        const raw = Array.from(e.results).map(r => r[0].transcript).join(" ");
+        const final = e.results[e.results.length - 1].isFinal;
+        console.log('Speech result:', { raw, final });
+        onResult({ raw, final });
+        
+        // Don't restart immediately on final result, let it end naturally
+      };
+      
+      rec.onerror = (e) => {
+        console.log('Speech recognition error:', e.error);
+        if (e.error === 'no-speech') {
+          // This is normal, just restart if we're still listening
+          if (isListening) {
+            clearTimeout(restartTimeout);
+            restartTimeout = setTimeout(startRecognition, 1000);
+          }
+        } else if (e.error === 'aborted') {
+          // Recognition was aborted, restart if needed
+          if (isListening) {
+            clearTimeout(restartTimeout);
+            restartTimeout = setTimeout(startRecognition, 500);
+          }
+        } else {
+          // Other errors - report them but try to restart
+          console.error('Speech recognition error:', e.error);
+          if (isListening) {
+            clearTimeout(restartTimeout);
+            restartTimeout = setTimeout(startRecognition, 2000);
+          }
+        }
+      };
+      
+      rec.onend = () => {
+        console.log('Speech recognition ended');
+        // Always restart if we're supposed to be listening
+        if (isListening) {
+          clearTimeout(restartTimeout);
+          restartTimeout = setTimeout(startRecognition, 100);
+        }
+      };
+    },
+    start() { 
+      isListening = true;
+      console.log('Starting continuous speech recognition');
+      startRecognition();
+    },
+    stop() { 
+      console.log('Stopping speech recognition');
+      isListening = false;
+      clearTimeout(restartTimeout);
+      rec?.stop(); 
+    },
+    onResult(cb) { onResult = cb; },
+    onError(cb) { onError = cb; }
+  };
+}
+
+function createNativeAdapter() {
+  // expo-speech-recognition for Expo projects
+  let ExpoSpeechRecognition;
+  try { 
+    ExpoSpeechRecognition = require('expo-speech-recognition').ExpoSpeechRecognition; 
+  } catch (error) { 
+    console.warn('Speech recognition not available:', error.message);
+  }
+  let onResult = () => {};
+  let onError = () => {};
+  
+  return {
+    async init() { 
+      if (ExpoSpeechRecognition) {
+        // Request permissions
+        const { status } = await ExpoSpeechRecognition.requestPermissionsAsync();
+        if (status !== 'granted') {
+          throw new Error('Speech recognition permission not granted');
+        }
+      }
+    },
+    start() { 
+      if (ExpoSpeechRecognition) {
+        ExpoSpeechRecognition.start({
+          lang: "ta-IN",
+          interimResults: true,
+          maxAlternatives: 1,
+          continuous: true,
+          onSpeechResults: (event) => {
+            const raw = event.results?.[0]?.transcript || "";
+            onResult({ raw, final: true });
+          },
+          onSpeechError: (event) => {
+            onError(event.error);
+          }
+        });
+      }
+    },
+    stop() { 
+      ExpoSpeechRecognition?.stop();
+    },
+    onResult(cb) { onResult = cb; },
+    onError(cb) { onError = cb; }
+  };
+}
+
+const adapter = isWeb ? createWebAdapter() : createNativeAdapter();
+export default adapter;

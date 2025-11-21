@@ -1,6 +1,6 @@
 /*
   Tamil Pommai Expo App - Voice-controlled puppet with Tamil letter learning
-  Version: 1.1 - Fixed deployment issues
+  Version: 1.2 - Force cache clear deployment fix - Nov 21, 2025
 */
 import React, { useEffect, useRef, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Platform, Animated, Dimensions } from "react-native";

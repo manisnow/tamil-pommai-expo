@@ -1,6 +1,6 @@
-# Netlify deployment settings
+# Netlify deployment settings - Force rebuild v1.1
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = "dist"
 
 # Redirect all routes to index.html for single-page app

@@ -53,13 +53,29 @@ function createWebAdapter() {
         const raw = Array.from(e.results).map(r => r[0].transcript).join(" ");
         const final = e.results[e.results.length - 1].isFinal;
         console.log('Speech result:', { raw, final });
-        onResult({ raw, final });
         
-        // Don't restart immediately on final result, let it end naturally
+        // Safely call onResult
+        try {
+          if (typeof onResult === 'function') {
+            onResult({ raw, final });
+          }
+        } catch (err) {
+          console.error('Error in onResult callback:', err);
+        }
       };
       
       rec.onerror = (e) => {
         console.log('Speech recognition error:', e.error);
+        
+        // Safely call onError
+        try {
+          if (typeof onError === 'function') {
+            onError(e.error);
+          }
+        } catch (err) {
+          console.error('Error in onError callback:', err);
+        }
+        
         if (e.error === 'no-speech') {
           // This is normal, just restart if we're still listening
           if (isListening) {

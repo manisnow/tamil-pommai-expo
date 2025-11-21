@@ -41,7 +41,7 @@ export default function App() {
   const [currentLetter, setCurrentLetter] = useState(null);
   const [isListening, setIsListening] = useState(false);
   const [recognizedCommand, setRecognizedCommand] = useState('');
-  const [bannerText, setBannerText] = useState('Tamil Pommai - Say commands in Tamil!');
+  const [bannerText, setBannerText] = useState('தமிழ் பொம்மை - தமிழில் கட்டளை சொல்லுங்கள்!');
   const bannerTimeoutRef = useRef(null);
   const speechTimeoutRef = useRef(null);
 
@@ -109,7 +109,7 @@ export default function App() {
         
         clearTimeout(bannerTimeoutRef.current);
         bannerTimeoutRef.current = setTimeout(() => {
-          setBannerText('Tamil Pommai - Say commands in Tamil!');
+          setBannerText('தமிழ் பொம்மை - தமிழில் கட்டளை சொல்லுங்கள்!');
         }, 3000);
         return;
       }
@@ -129,7 +129,7 @@ export default function App() {
       clearTimeout(bannerTimeoutRef.current);
       bannerTimeoutRef.current = setTimeout(() => {
         setCurrentLetter(null);
-        setBannerText('Tamil Pommai - Say commands in Tamil!');
+        setBannerText('தமிழ் பொம்மை - தமிழில் கட்டளை சொல்லுங்கள்!');
       }, 4000);
       return;
     }
@@ -144,10 +144,10 @@ export default function App() {
       }
       await SpeechAdapter.start();
       setIsListening(true);
-      setBannerText('🎤 Listening restarted...');
+      setBannerText('🎤 மீண்டும் கேட்க ஆரம்பித்தது...');
       
       setTimeout(() => {
-        setBannerText('Tamil Pommai - Say commands in Tamil!');
+        setBannerText('தமிழ் பொம்மை - தமிழில் கட்டளை சொல்லுங்கள்!');
       }, 2000);
     } catch (error) {
       console.error('Error restarting speech:', error);
@@ -193,10 +193,10 @@ export default function App() {
 
         {/* Voice Input Display */}
         <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Voice Input:</Text>
-          <Text style={styles.inputText}>{voiceInput || 'Say something in Tamil...'}</Text>
+          <Text style={styles.inputLabel}>குரல் உள்ளீடு:</Text>
+          <Text style={styles.inputText}>{voiceInput || 'தமிழில் ஏதாவது சொல்லுங்கள்...'}</Text>
           {recognizedCommand && (
-            <Text style={styles.commandText}>Command: {recognizedCommand}</Text>
+            <Text style={styles.commandText}>கட்டளை: {recognizedCommand}</Text>
           )}
         </View>
 
@@ -207,17 +207,17 @@ export default function App() {
             onPress={restartListening}
           >
             <Text style={styles.buttonText}>
-              {isListening ? '🎤 Listening' : '🔴 Restart'}
+              {isListening ? '🎤 கேட்கிறது' : '🔴 மீண்டும் ஆரம்பி'}
             </Text>
           </TouchableOpacity>
         </View>
 
         {/* Command Help */}
         <View style={styles.helpContainer}>
-          <Text style={styles.helpTitle}>Tamil Commands:</Text>
-          <Text style={styles.helpText}>நட (walk) • ஓடு (run) • குதி (jump) • உட்கார் (sit) • நடன (dance)</Text>
-          <Text style={styles.helpTitle}>Tamil Letters:</Text>
-          <Text style={styles.helpText}>அ, ஆ, இ, ஈ, உ, ஊ... (say any Tamil letter)</Text>
+          <Text style={styles.helpTitle}>தமிழ் கட்டளைகள்:</Text>
+          <Text style={styles.helpText}>நட (நடை) • ஓடு (ஓட்டம்) • குதி (குதித்தல்) • உட்கார் (அமர்) • நடன (நடனம்)</Text>
+          <Text style={styles.helpTitle}>தமிழ் எழுத்துக்கள்:</Text>
+          <Text style={styles.helpText}>அ, ஆ, இ, ஈ, உ, ஊ... (எந்த தமிழ் எழுத்தையும் சொல்லுங்கள்)</Text>
         </View>
       </View>
     </View>

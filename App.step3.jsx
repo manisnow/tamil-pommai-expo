@@ -2,15 +2,26 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity, Alert } from 'react-native';
 import SpeechAdapter from './src/utils/SpeechAdapter';
 import LottieWrapper from './src/components/LottieWrapper';
-import tamilLetters from './assets/tamil-letters.json';
+import tamilLettersData from './assets/tamil-letters.json';
 
 const { width, height } = Dimensions.get('window');
+
+// Flatten the Tamil letters into a single array
+const tamilLetters = [
+  ...tamilLettersData.vowels,
+  ...tamilLettersData.consonants
+].map(letter => ({
+  tamil: letter.letter,
+  english: letter.name,
+  meaning: letter.sound
+}));
 
 const commandMappings = {
   'நட': 'walk',
   'ஓடு': 'run',
   'குதி': 'jump', 
   'உட்கார்': 'sit',
+  'உட்காரு': 'sit',
   'நடன': 'dance',
   'டான்ஸ்': 'dance'
 };
@@ -37,6 +48,8 @@ export default function App() {
   useEffect(() => {
     console.log('🎭 Animation files loaded:', Object.keys(animationFiles));
     console.log('🎯 Current animation file:', animationFiles[currentAnimation]);
+    console.log('📚 Tamil letters count:', tamilLetters.length);
+    console.log('📚 First few letters:', tamilLetters.slice(0, 3));
   }, [currentAnimation]);
 
   useEffect(() => {

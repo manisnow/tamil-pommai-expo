@@ -1,4 +1,4 @@
-// Fixed App - Working Tamil Pommai Nov 21, 2025
+// Working Tamil Pommai App - v2.0 - Nov 21, 2025 - Force rebuild
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity, Alert } from 'react-native';
 import SpeechAdapter from './src/utils/SpeechAdapter';

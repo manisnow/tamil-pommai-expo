@@ -33,6 +33,12 @@ export default function App() {
   const bannerTimeoutRef = useRef(null);
   const speechTimeoutRef = useRef(null);
 
+  // Debug animation files
+  useEffect(() => {
+    console.log('🎭 Animation files loaded:', Object.keys(animationFiles));
+    console.log('🎯 Current animation file:', animationFiles[currentAnimation]);
+  }, [currentAnimation]);
+
   useEffect(() => {
     const initializeSpeech = async () => {
       try {
@@ -153,11 +159,13 @@ export default function App() {
         {/* Character Animation */}
         <View style={styles.characterContainer}>
           <LottieWrapper
-            source={animationFiles[currentAnimation]}
+            animationData={animationFiles[currentAnimation]}
             style={styles.character}
             autoPlay={true}
             loop={true}
           />
+          {/* Debug info */}
+          <Text style={styles.debugText}>Current: {currentAnimation}</Text>
         </View>
 
         {/* Letter Display */}
@@ -344,5 +352,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#7f8c8d',
     lineHeight: 20,
+  },
+  debugText: {
+    fontSize: 14,
+    color: '#e74c3c',
+    marginTop: 10,
+    textAlign: 'center',
   },
 });

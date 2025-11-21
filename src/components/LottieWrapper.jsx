@@ -2,15 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import { Platform, View, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 
+// Fixed version - Nov 21, 2025 - v1.2.1
+const LOTTIE_VERSION = "1.2.1";
+
 export default function LottieWrapper({ animationData, style, loop = true, autoPlay = true }) {
   const isWeb = Platform.OS === "web";
   const ref = useRef(null);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
+    console.log(`🎭 LottieWrapper ${LOTTIE_VERSION} - initializing for ${Platform.OS}`);
     if (isWeb) {
       try {
         const lottie = require("lottie-web");
+        console.log("📦 lottie-web loaded successfully");
         if (ref.current && animationData) {
           const anim = lottie.loadAnimation({
             container: ref.current,
@@ -19,19 +24,22 @@ export default function LottieWrapper({ animationData, style, loop = true, autoP
             autoplay: autoPlay,
             animationData,
             onError: (error) => {
-              console.error("Lottie animation error:", error);
+              console.error("🚨 Lottie animation error:", error);
+              setHasError(true);
             }
           });
+          console.log("✅ Lottie animation loaded successfully");
           return () => {
             try {
               anim.destroy();
+              console.log("🗑️ Lottie animation destroyed");
             } catch (e) {
-              console.warn("Error destroying animation:", e);
+              console.warn("⚠️ Error destroying animation:", e);
             }
           };
         }
       } catch (error) {
-        console.error("Error loading lottie-web:", error);
+        console.error("❌ Error loading lottie-web:", error);
         setHasError(true);
       }
     }

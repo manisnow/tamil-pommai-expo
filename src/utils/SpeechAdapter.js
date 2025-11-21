@@ -4,8 +4,13 @@ const isWeb = Platform.OS === "web";
 
 function createWebAdapter() {
   let rec = null;
-  let onResult = () => {};
-  let onError = () => {};
+  // Initialize callbacks with safe defaults to prevent undefined errors
+  let onResult = (data) => {
+    console.log('🔧 Default onResult called with:', data);
+  };
+  let onError = (error) => {
+    console.error('🔧 Default onError called with:', error);
+  };
   let isListening = false;
   let restartTimeout = null;
   const SpeechRecognition = typeof globalThis !== "undefined" && 
@@ -97,8 +102,22 @@ function createWebAdapter() {
       clearTimeout(restartTimeout);
       rec?.stop(); 
     },
-    onResult(cb) { onResult = cb; },
-    onError(cb) { onError = cb; }
+    onResult(cb) { 
+      if (typeof cb === 'function') {
+        onResult = cb;
+        console.log('🔧 Web onResult callback set successfully');
+      } else {
+        console.error('🚨 Web onResult callback must be a function');
+      }
+    },
+    onError(cb) { 
+      if (typeof cb === 'function') {
+        onError = cb; 
+        console.log('🔧 Web onError callback set successfully');
+      } else {
+        console.error('🚨 Web onError callback must be a function');
+      }
+    }
   };
 }
 

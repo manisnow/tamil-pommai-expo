@@ -18,7 +18,17 @@ import walkAnim from "./assets/walk.json";
 import danceAnim from "./assets/dance.json";
 import jumpAnim from "./assets/jump.json";
 import runAnim from "./assets/run1.json";
-import tamilLetters from "./assets/tamil-letters.json";
+import tamilLettersData from "./assets/tamil-letters.json";
+
+// Fix Tamil letters import - flatten the structure
+const tamilLetters = [
+  ...tamilLettersData.vowels,
+  ...tamilLettersData.consonants
+].map(letter => ({
+  tamil: letter.letter,
+  english: letter.name,
+  meaning: letter.sound
+}));
 
 const animations = { sit: sitAnim, walk: walkAnim, dance: danceAnim, jump: jumpAnim, run: runAnim };
 

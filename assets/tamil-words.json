@@ -531,9 +531,9 @@
       "animation": "green"
     },
     {
-      "tamil": "நீலம்",
+      "tamil": "வான்நிறம்",
       "english": "blue",
-      "pronunciation": "neelam",
+      "pronunciation": "vaanniram",
       "meaning": "வானத்தின் நிறம்",
       "category": "நிறங்கள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f535.svg",
@@ -715,9 +715,9 @@
   ],
   "objects": [
     {
-      "tamil": "புத்தகம்",
+      "tamil": "நூல்",
       "english": "book",
-      "pronunciation": "puththagam",
+      "pronunciation": "nool",
       "meaning": "படிக்கும் பொருள்",
       "category": "பொருட்கள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4d6.svg",
@@ -725,9 +725,9 @@
       "animation": "book"
     },
     {
-      "tamil": "பென்சில்",
+      "tamil": "எழுதுகோல்",
       "english": "pencil",
-      "pronunciation": "pensil",
+      "pronunciation": "ezhuthukol",
       "meaning": "எழுதும் கருவி",
       "category": "பொருட்கள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/270f.svg",
@@ -745,9 +745,9 @@
       "animation": "ball"
     },
     {
-      "tamil": "கார்",
+      "tamil": "வண்டி",
       "english": "car",
-      "pronunciation": "kaar",
+      "pronunciation": "vandi",
       "meaning": "பயண வாகனம்",
       "category": "பொருட்கள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f697.svg",
@@ -1021,9 +1021,9 @@
   ],
   "emotions": [
     {
-      "tamil": "சந்தோஷம்",
+      "tamil": "மகிழ்ச்சி",
       "english": "happiness",
-      "pronunciation": "santhosham",
+      "pronunciation": "magizhchi",
       "meaning": "மகிழ்ச்சி உணர்வு",
       "category": "உணர்ச்சிகள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f60a.svg",
@@ -1071,9 +1071,9 @@
       "animation": "love"
     },
     {
-      "tamil": "ஆச்சரியம்",
+      "tamil": "வியப்பு",
       "english": "surprise",
-      "pronunciation": "aachariyam",
+      "pronunciation": "viyappu",
       "meaning": "எதிர்பாராத உணர்வு",
       "category": "உணர்ச்சிகள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f632.svg",
@@ -1091,9 +1091,9 @@
       "animation": "sad"
     },
     {
-      "tamil": "உற்சாகம்",
+      "tamil": "களிப்பு",
       "english": "excited",
-      "pronunciation": "urchaagam",
+      "pronunciation": "kalippu",
       "meaning": "மிகு மகிழ்ச்சி உணர்வு",
       "category": "உணர்ச்சிகள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f929.svg",

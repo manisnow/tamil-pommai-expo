@@ -144,6 +144,7 @@ export default function App() {
       const words = text.split(/[\s.,।]+/).filter(word => word.length > 0);
       console.log('📝 Words detected:', words);
       console.log('🔤 Available letter triggers (first 10):', letterMap.slice(0, 10).map(l => `${l.letter}: [${l.triggers.join(', ')}]`));
+      console.log('🌿 Available Tamil words (first 10):', tamilWords.slice(0, 10).map(w => `${w.tamil}: [${w.triggers.join(', ')}]`));
       
       // First, try exact matches for complete words
       for (const word of words) {
@@ -424,9 +425,19 @@ export default function App() {
 
         {showWord && currentWord ? (
           <View style={styles.wordContainer}>
-            <Image source={{ uri: currentWord.imageUrl }} style={styles.wordImage} />
+            <View style={styles.imageContainer}>
+              <Image 
+                source={{ uri: currentWord.imageUrl }} 
+                style={styles.wordImage}
+                onError={() => console.log('Image failed to load:', currentWord.imageUrl)}
+              />
+              {currentWord.emoji && (
+                <Text style={styles.emojiOverlay}>{currentWord.emoji}</Text>
+              )}
+            </View>
             <Text style={styles.wordTamil}>{currentWord.tamil}</Text>
             <Text style={styles.wordEnglish}>{currentWord.english}</Text>
+            <Text style={styles.wordPronunciation}>({currentWord.pronunciation})</Text>
             <Text style={styles.wordMeaning}>{currentWord.meaning}</Text>
             <Text style={styles.wordCategory}>{currentWord.category}</Text>
           </View>
@@ -515,7 +526,7 @@ const styles = StyleSheet.create({
   },
   wordContainer: {
     width: 320,
-    height: 400,
+    height: 450,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#f8f9fa",
@@ -529,26 +540,48 @@ const styles = StyleSheet.create({
     elevation: 5,
     padding: 15
   },
+  imageContainer: {
+    position: 'relative',
+    width: 200,
+    height: 150,
+    marginBottom: 15,
+  },
   wordImage: {
     width: 200,
     height: 150,
     borderRadius: 15,
-    marginBottom: 15,
     objectFit: "cover"
+  },
+  emojiOverlay: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
+    fontSize: 30,
+    backgroundColor: 'rgba(255,255,255,0.8)',
+    borderRadius: 15,
+    paddingHorizontal: 5,
+    paddingVertical: 2
   },
   wordTamil: {
     fontSize: 36,
     fontWeight: "bold",
     color: "#28a745",
     textAlign: "center",
-    marginBottom: 8
+    marginBottom: 5
   },
   wordEnglish: {
     fontSize: 24,
     fontWeight: "600",
     color: "#495057",
     textAlign: "center",
-    marginBottom: 5
+    marginBottom: 3
+  },
+  wordPronunciation: {
+    fontSize: 16,
+    color: "#6c757d",
+    textAlign: "center",
+    fontStyle: "italic",
+    marginBottom: 8
   },
   wordMeaning: {
     fontSize: 16,

@@ -112,41 +112,43 @@ const createLetterMap = () => {
 
 const letterMap = createLetterMap();
 
-// Create scrolling text that includes words from all categories
-const createScrollingText = () => {
-  // Get sample words from each category (2-3 words per category)
-  const scrollWords = [];
-  
+// Create scrolling text with categories and animation commands
+const createCategoryScrollingText = () => {
   // Animation commands
   const animationCommands = [
     "உக்காரு (Sit)", "நடை (Walk)", "நடனமாடு (Dance)", "குதி (Jump)", "ஓடு (Run)"
   ];
   
-  // Sample words from each category
-  const sampleWords = [
-    // Nature
-    "இலை (Leaf)", "மரம் (Tree)", "பூ (Flower)",
-    // Animals  
-    "பூனை (Cat)", "நாய் (Dog)", "யானை (Elephant)",
-    // Family
-    "அம்மா (Mother)", "அப்பா (Father)", "தங்கை (Sister)",
-    // Body
-    "கண் (Eye)", "கை (Hand)", "கால் (Leg)",
-    // Food
-    "சாதம் (Rice)", "பால் (Milk)", "பழம் (Fruit)",
-    // Colors
-    "சிவப்பு (Red)", "பச்சை (Green)", "நீலம் (Blue)",
-    // Numbers
-    "ஒன்று (One)", "இரண்டு (Two)", "மூன்று (Three)",
-    // Objects
-    "புத்தகம் (Book)", "பந்து (Ball)", "கார் (Car)"
+  // Category names in Tamil
+  const categories = [
+    "இயற்கை (Nature)", "விலங்குகள் (Animals)", "குடும்பம் (Family)", 
+    "உடல் (Body)", "உணவு (Food)", "நிறங்கள் (Colors)",
+    "எண்கள் (Numbers)", "பொருட்கள் (Objects)", "செயல்கள் (Actions)",
+    "வானிலை (Weather)", "உணர்ச்சிகள் (Emotions)"
   ];
   
-  // Combine animation commands and sample words
-  const allItems = [...animationCommands, ...sampleWords];
+  // Combine animation commands and categories
+  const allItems = [...animationCommands, ...categories];
   
   // Create the scrolling text with bullet separators
-  return allItems.join("   •   ") + "   •   " + allItems.slice(0, 10).join("   •   ");
+  return allItems.join("   •   ") + "   •   " + allItems.slice(0, 8).join("   •   ");
+};
+
+// Get category display name mapping
+const getCategoryDisplayName = () => {
+  return {
+    "nature": "இயற்கை",
+    "animals": "விலங்குகள்", 
+    "family": "குடும்பம்",
+    "body": "உடல்",
+    "food": "உணவு",
+    "colors": "நிறங்கள்",
+    "numbers": "எண்கள்",
+    "objects": "பொருட்கள்",
+    "actions": "செயல்கள்",
+    "weather": "வானிலை",
+    "emotions": "உணர்ச்சிகள்"
+  };
 };
 
 const normalizeText = (s = "") => 
@@ -164,6 +166,8 @@ export default function App() {
   const [currentWord, setCurrentWord] = useState(null); // For displaying Tamil words with images
   const [showLetter, setShowLetter] = useState(false); // Toggle between animation and letter view
   const [showWord, setShowWord] = useState(false); // Toggle for showing word images
+  const [selectedCategory, setSelectedCategory] = useState(null); // Currently selected category
+  const [showCategoryWords, setShowCategoryWords] = useState(false); // Toggle for showing category words
   const adapterRef = useRef(SpeechAdapter);
   const messageTimeoutRef = useRef(null);
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -444,21 +448,98 @@ export default function App() {
   return (
     <SafeAreaView style={styles.root}>
       <View style={styles.scroller}>
-        <Animated.Text 
-          style={[
-            styles.scrollerText, 
-            {
-              transform: [{ translateX: scrollX }]
+        <TouchableOpacity
+          onPress={() => {
+            // Handle category selection from scrolling text
+            setShowCategoryWords(!showCategoryWords);
+            if (!showCategoryWords) {
+              setSelectedCategory('nature'); // Default to first category
+            } else {
+              setSelectedCategory(null);
             }
-          ]}
+          }}
+          style={styles.scrollerTouchable}
         >
-          {createScrollingText()}
-        </Animated.Text>
+          <Animated.Text 
+            style={[
+              styles.scrollerText, 
+              {
+                transform: [{ translateX: scrollX }]
+              }
+            ]}
+          >
+            {createCategoryScrollingText()}
+          </Animated.Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Category Selection Buttons */}
+      <View style={styles.categoryButtonsContainer}>
+        {Object.keys(tamilWordsData).map((categoryKey) => {
+          const displayName = getCategoryDisplayName()[categoryKey];
+          return (
+            <TouchableOpacity
+              key={categoryKey}
+              style={[
+                styles.categoryButton, 
+                selectedCategory === categoryKey && styles.selectedCategoryButton
+              ]}
+              onPress={() => {
+                setSelectedCategory(categoryKey);
+                setShowCategoryWords(true);
+                setShowWord(false);
+                setShowLetter(false);
+              }}
+            >
+              <Text style={[
+                styles.categoryButtonText,
+                selectedCategory === categoryKey && styles.selectedCategoryButtonText
+              ]}>
+                {displayName}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
       </View>
       
       <View style={styles.container}>
 
         <Text style={styles.title}>தமிழ் பொம்மை விளையாட்டு 🎭</Text>
+
+        {showCategoryWords && selectedCategory ? (
+          <View style={styles.categoryContainer}>
+            <Text style={styles.categoryTitle}>
+              {getCategoryDisplayName()[selectedCategory]} வார்த்தைகள்
+            </Text>
+            <View style={styles.categoryGrid}>
+              {tamilWordsData[selectedCategory]?.map((word, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={styles.wordButton}
+                  onPress={() => {
+                    setCurrentWord(word);
+                    setShowWord(true);
+                    setShowLetter(false);
+                    setShowCategoryWords(false);
+                  }}
+                >
+                  <Text style={styles.wordEmoji}>{word.emoji}</Text>
+                  <Text style={styles.wordTamil}>{word.tamil}</Text>
+                  <Text style={styles.wordEnglish}>({word.english})</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => {
+                setShowCategoryWords(false);
+                setSelectedCategory(null);
+              }}
+            >
+              <Text style={styles.closeButtonText}>மூடு (Close)</Text>
+            </TouchableOpacity>
+          </View>
+        ) : null}
 
         {showWord && currentWord ? (
           <View style={styles.wordContainer}>
@@ -638,5 +719,99 @@ const styles = StyleSheet.create({
   title: { fontSize: 24, marginBottom: 8, fontWeight: "600" },
   button: { backgroundColor: "#ffcc00", paddingHorizontal: 18, paddingVertical: 10, borderRadius: 10, marginTop: 12 },
   buttonText: { fontSize: 18 },
-  message: { marginTop: 14, fontSize: 16, textAlign: "center" }
+  message: { marginTop: 14, fontSize: 16, textAlign: "center" },
+  
+  // New styles for category selection
+  categoryButtonsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: "#f8f9fa"
+  },
+  categoryButton: {
+    backgroundColor: "#e9ecef",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    margin: 3,
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: "#dee2e6"
+  },
+  selectedCategoryButton: {
+    backgroundColor: "#007bff",
+    borderColor: "#007bff"
+  },
+  categoryButtonText: {
+    fontSize: 12,
+    color: "#495057",
+    fontWeight: "500"
+  },
+  selectedCategoryButtonText: {
+    color: "#ffffff"
+  },
+  categoryContainer: {
+    padding: 15,
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    margin: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3
+  },
+  categoryTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#333",
+    textAlign: "center",
+    marginBottom: 15
+  },
+  categoryGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around"
+  },
+  wordButton: {
+    width: "30%",
+    backgroundColor: "#f8f9fa",
+    padding: 10,
+    margin: 5,
+    borderRadius: 10,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#e9ecef"
+  },
+  wordEmoji: {
+    fontSize: 24,
+    marginBottom: 5
+  },
+  wordTamil: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#333",
+    textAlign: "center"
+  },
+  wordEnglish: {
+    fontSize: 10,
+    color: "#666",
+    textAlign: "center"
+  },
+  closeButton: {
+    backgroundColor: "#dc3545",
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 15,
+    alignSelf: "center"
+  },
+  closeButtonText: {
+    color: "#ffffff",
+    fontSize: 14,
+    fontWeight: "600"
+  },
+  scrollerTouchable: {
+    width: "100%"
+  }
 });

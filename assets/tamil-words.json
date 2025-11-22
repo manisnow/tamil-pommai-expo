@@ -99,6 +99,96 @@
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/26f0.svg", 
       "animation": "mountain",
       "emoji": "⛰️"
+    },
+    {
+      "tamil": "ஆறு",
+      "english": "river",
+      "pronunciation": "aaru",
+      "meaning": "ஓடும் இனிய நீர்",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f30a.svg",
+      "animation": "river",
+      "emoji": "🏞️"
+    },
+    {
+      "tamil": "காடு",
+      "english": "forest",
+      "pronunciation": "kaadu",
+      "meaning": "மரங்கள் நிறைந்த இடம்",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f332.svg",
+      "animation": "forest",
+      "emoji": "🌲"
+    },
+    {
+      "tamil": "குன்று",
+      "english": "hill",
+      "pronunciation": "kundru",
+      "meaning": "சிறிய மலை",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f5fb.svg",
+      "animation": "hill",
+      "emoji": "🗻"
+    },
+    {
+      "tamil": "புல்",
+      "english": "grass",
+      "pronunciation": "pul",
+      "meaning": "பச்சை நிற தரைப் பரப்பு",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f33f.svg",
+      "animation": "grass",
+      "emoji": "🌿"
+    },
+    {
+      "tamil": "வேர்",
+      "english": "root",
+      "pronunciation": "ver",
+      "meaning": "மரத்தின் அடித்தள பகுதி",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1fab4.svg",
+      "animation": "root",
+      "emoji": "🪴"
+    },
+    {
+      "tamil": "கிளை",
+      "english": "branch",
+      "pronunciation": "kilai",
+      "meaning": "மரத்தின் கை போன்ற பகுதி",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f333.svg",
+      "animation": "branch",
+      "emoji": "🌳"
+    },
+    {
+      "tamil": "விதை",
+      "english": "seed",
+      "pronunciation": "vithai",
+      "meaning": "புதிய செடி வளரும் கருவம்",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f331.svg",
+      "animation": "seed",
+      "emoji": "🌱"
+    },
+    {
+      "tamil": "மணல்",
+      "english": "sand",
+      "pronunciation": "manal",
+      "meaning": "கடற்கரையில் உள்ள நுண் துகள்கள்",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3d6.svg",
+      "animation": "sand",
+      "emoji": "🏖️"
+    },
+    {
+      "tamil": "மழைத்துளி",
+      "english": "raindrop",
+      "pronunciation": "mazhaithuli",
+      "meaning": "வானிலிருந்து விழும் நீர்த்துளி",
+      "category": "இயற்கை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4a7.svg",
+      "animation": "raindrop",
+      "emoji": "💧"
     }
   ],
   "animals": [
@@ -201,6 +291,96 @@
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f405.svg",
       "emoji": "🐅",
       "animation": "tiger"
+    },
+    {
+      "tamil": "சிங்கம்",
+      "english": "lion",
+      "pronunciation": "singam",
+      "meaning": "காட்டு மன்னன்",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f981.svg",
+      "emoji": "🦁",
+      "animation": "lion"
+    },
+    {
+      "tamil": "மான்",
+      "english": "deer",
+      "pronunciation": "maan",
+      "meaning": "வேகமாக ஓடும் அழகிய விலங்கு",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f98c.svg",
+      "emoji": "🦌",
+      "animation": "deer"
+    },
+    {
+      "tamil": "முயல்",
+      "english": "rabbit",
+      "pronunciation": "muyal",
+      "meaning": "நீண்ட காதுகள் உள்ள சிறிய விலங்கு",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f407.svg",
+      "emoji": "🐇",
+      "animation": "rabbit"
+    },
+    {
+      "tamil": "குரங்கு",
+      "english": "monkey",
+      "pronunciation": "kurangu",
+      "meaning": "மரத்தில் தாவும் விலங்கு",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f412.svg",
+      "emoji": "🐒",
+      "animation": "monkey"
+    },
+    {
+      "tamil": "மயில்",
+      "english": "peacock",
+      "pronunciation": "mayil",
+      "meaning": "அழகிய வால் பறவை",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f99a.svg",
+      "emoji": "🦚",
+      "animation": "peacock"
+    },
+    {
+      "tamil": "நரி",
+      "english": "fox",
+      "pronunciation": "nari",
+      "meaning": "புத்திசாலி காட்டு விலங்கு",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f98a.svg",
+      "emoji": "🦊",
+      "animation": "fox"
+    },
+    {
+      "tamil": "கரடி",
+      "english": "bear",
+      "pronunciation": "karadi",
+      "meaning": "பெரிய உரோமம் உள்ள விலங்கு",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43b.svg",
+      "emoji": "🐻",
+      "animation": "bear"
+    },
+    {
+      "tamil": "ஓணான்",
+      "english": "chameleon",
+      "pronunciation": "onaan",
+      "meaning": "நிறம் மாற்றும் பல்லி",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f98e.svg",
+      "emoji": "🦎",
+      "animation": "chameleon"
+    },
+    {
+      "tamil": "வெளவால்",
+      "english": "bat",
+      "pronunciation": "velavaal",
+      "meaning": "இரவில் பறக்கும் விலங்கு",
+      "category": "விலங்குகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f987.svg",
+      "emoji": "🦇",
+      "animation": "bat"
     }
   ],
   "family": [
@@ -405,13 +585,123 @@
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f448.svg",
       "emoji": "👈",
       "animation": "finger"
+    },
+    {
+      "tamil": "தோள்",
+      "english": "shoulder",
+      "pronunciation": "thol",
+      "meaning": "கை மற்றும் உடல் இணையும் இடம்",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9b4.svg",
+      "emoji": "🦴",
+      "animation": "shoulder"
+    },
+    {
+      "tamil": "முழங்கை",
+      "english": "elbow",
+      "pronunciation": "muzhangai",
+      "meaning": "கை வளையும் இடம்",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9b4.svg",
+      "emoji": "🦴",
+      "animation": "elbow"
+    },
+    {
+      "tamil": "முழங்கால்",
+      "english": "knee",
+      "pronunciation": "muzhangaal",
+      "meaning": "கால் வளையும் இடம்",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9b5.svg",
+      "emoji": "🦵",
+      "animation": "knee"
+    },
+    {
+      "tamil": "கணுக்கால்",
+      "english": "ankle",
+      "pronunciation": "kanukkaal",
+      "meaning": "கால் மற்றும் பாதம் இணையும் இடம்",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9b6.svg",
+      "emoji": "🦶",
+      "animation": "ankle"
+    },
+    {
+      "tamil": "நெற்றி",
+      "english": "forehead",
+      "pronunciation": "netri",
+      "meaning": "தலையின் முன்பகுதி",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9e0.svg",
+      "emoji": "🧠",
+      "animation": "forehead"
+    },
+    {
+      "tamil": "நாக்கு",
+      "english": "tongue",
+      "pronunciation": "naakku",
+      "meaning": "வாயில் உள்ள சுவை உணர்வி",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f445.svg",
+      "emoji": "👅",
+      "animation": "tongue"
+    },
+    {
+      "tamil": "கழுத்து",
+      "english": "neck",
+      "pronunciation": "kazhuthu",
+      "meaning": "தலை மற்றும் உடல் இணையும் பகுதி",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9d1.svg",
+      "emoji": "🧑",
+      "animation": "neck"
+    },
+    {
+      "tamil": "மணிக்கட்டு",
+      "english": "wrist",
+      "pronunciation": "manikkattu",
+      "meaning": "கை மற்றும் உள்ளங்கை இணையும் இடம்",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f91a.svg",
+      "emoji": "🤚",
+      "animation": "wrist"
+    },
+    {
+      "tamil": "உள்ளங்கை",
+      "english": "palm",
+      "pronunciation": "ullangai",
+      "meaning": "கையின் உள்புற பகுதி",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f590.svg",
+      "emoji": "🖐️",
+      "animation": "palm"
+    },
+    {
+      "tamil": "பாதம்",
+      "english": "foot",
+      "pronunciation": "paatham",
+      "meaning": "கால்களின் அடித்தளம்",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9b6.svg",
+      "emoji": "🦶",
+      "animation": "foot"
+    },
+    {
+      "tamil": "விழி",
+      "english": "eyelash",
+      "pronunciation": "vizhi",
+      "meaning": "கண்ணின் மேல் வளரும் முடி",
+      "category": "உடல்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f441.svg",
+      "emoji": "👁️",
+      "animation": "eyelash"
     }
   ],
   "food": [
     {
-      "tamil": "சாதம்",
+      "tamil": "சோறு",
       "english": "rice",
-      "pronunciation": "saatham",
+      "pronunciation": "soru",
       "meaning": "சமைத்த அரிசி உணவு",
       "category": "உணவு",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f35a.svg",
@@ -507,6 +797,96 @@
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f375.svg",
       "emoji": "🍵",
       "animation": "tea"
+    },
+    {
+      "tamil": "வெங்காயம்",
+      "english": "onion",
+      "pronunciation": "vengaayam",
+      "meaning": "காரமான வேர்க்கிழங்கு",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9c5.svg",
+      "emoji": "🧅",
+      "animation": "onion"
+    },
+    {
+      "tamil": "பூண்டு",
+      "english": "garlic",
+      "pronunciation": "poondu",
+      "meaning": "மணமுள்ள சிறு வேர்",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9c4.svg",
+      "emoji": "🧄",
+      "animation": "garlic"
+    },
+    {
+      "tamil": "மிளகாய்",
+      "english": "chili",
+      "pronunciation": "milagaay",
+      "meaning": "காரமான பச்சை/சிவப்பு காய்",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f336.svg",
+      "emoji": "🌶️",
+      "animation": "chili"
+    },
+    {
+      "tamil": "கத்தரிக்காய்",
+      "english": "eggplant",
+      "pronunciation": "katharikaay",
+      "meaning": "ஊதா நிற காய்கறி",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f346.svg",
+      "emoji": "🍆",
+      "animation": "eggplant"
+    },
+    {
+      "tamil": "உருளைக்கிழங்கு",
+      "english": "potato",
+      "pronunciation": "urulaikizhangu",
+      "meaning": "மண்ணில் வளரும் உணவு",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f954.svg",
+      "emoji": "🥔",
+      "animation": "potato"
+    },
+    {
+      "tamil": "புளி",
+      "english": "tamarind",
+      "pronunciation": "puli",
+      "meaning": "புளிப்பு சுவை தரும் கனி",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f96d.svg",
+      "emoji": "🥭",
+      "animation": "tamarind"
+    },
+    {
+      "tamil": "அவரைக்காய்",
+      "english": "beans",
+      "pronunciation": "avaraikkay",
+      "meaning": "பச்சை நீண்ட காய்கறி",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1fad8.svg",
+      "emoji": "🫘",
+      "animation": "beans"
+    },
+    {
+      "tamil": "தக்காளி",
+      "english": "tomato",
+      "pronunciation": "takkaali",
+      "meaning": "சிவப்பு வட்ட காய்கறி",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f345.svg",
+      "emoji": "🍅",
+      "animation": "tomato"
+    },
+    {
+      "tamil": "வெல்லம்",
+      "english": "jaggery",
+      "pronunciation": "vellam",
+      "meaning": "கருப்பட்டு இனிப்பு",
+      "category": "உணவு",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36f.svg",
+      "emoji": "🍯",
+      "animation": "jaggery"
     }
   ],
   "colors": [
@@ -1054,7 +1434,7 @@
       "tamil": "பயம்",
       "english": "fear",
       "pronunciation": "payam",
-      "meaning": "அச்சம் உணர்வு",
+      "meaning": "பயந்து நடுங்கும் உணர்வு",
       "category": "உணர்ச்சிகள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f628.svg",
       "emoji": "😨",
@@ -1119,6 +1499,618 @@
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f60e.svg",
       "emoji": "😎",
       "animation": "proud"
+    }
+  ],
+  "clothing": [
+    {
+      "tamil": "புடவை",
+      "english": "saree",
+      "pronunciation": "pudavai",
+      "meaning": "பெண்களின் பாரம்பரிய உடை",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f97b.svg",
+      "emoji": "🥻",
+      "animation": "saree"
+    },
+    {
+      "tamil": "வேட்டி",
+      "english": "dhoti",
+      "pronunciation": "vetti",
+      "meaning": "ஆண்களின் பாரம்பரிய உடை",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f456.svg",
+      "emoji": "👖",
+      "animation": "dhoti"
+    },
+    {
+      "tamil": "சட்டை",
+      "english": "shirt",
+      "pronunciation": "sattai",
+      "meaning": "உடலின் மேல்பகுதி உடை",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f455.svg",
+      "emoji": "👕",
+      "animation": "shirt"
+    },
+    {
+      "tamil": "பாவாடை",
+      "english": "skirt",
+      "pronunciation": "paavaadai",
+      "meaning": "பெண்களின் கீழ் உடை",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f45a.svg",
+      "emoji": "👚",
+      "animation": "skirt"
+    },
+    {
+      "tamil": "அங்கி",
+      "english": "coat",
+      "pronunciation": "angi",
+      "meaning": "குளிர்காலத்து மேல் உடை",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9e5.svg",
+      "emoji": "🧥",
+      "animation": "coat"
+    },
+    {
+      "tamil": "காலணி",
+      "english": "shoes",
+      "pronunciation": "kaalani",
+      "meaning": "கால்களுக்கு அணியும் பாதுகாப்பு",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f45e.svg",
+      "emoji": "👞",
+      "animation": "shoes"
+    },
+    {
+      "tamil": "முக்காடு",
+      "english": "veil",
+      "pronunciation": "mukkaadu",
+      "meaning": "தலைக்கு அணியும் துணி",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9d5.svg",
+      "emoji": "🧕",
+      "animation": "veil"
+    },
+    {
+      "tamil": "கைக்கறை",
+      "english": "handkerchief",
+      "pronunciation": "kaikkarai",
+      "meaning": "கையில் வைக்கும் சிறு துணி",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9fc.svg",
+      "emoji": "🧼",
+      "animation": "handkerchief"
+    },
+    {
+      "tamil": "இடுப்புக்கச்சை",
+      "english": "belt",
+      "pronunciation": "iduppukkachai",
+      "meaning": "இடுப்பில் கட்டும் பட்டை",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9f0.svg",
+      "emoji": "🧰",
+      "animation": "belt"
+    },
+    {
+      "tamil": "தாலி",
+      "english": "necklace",
+      "pronunciation": "thaali",
+      "meaning": "கழுத்தில் அணியும் ஆபரணம்",
+      "category": "ஆடைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4ff.svg",
+      "emoji": "📿",
+      "animation": "necklace"
+    }
+  ],
+  "transport": [
+    {
+      "tamil": "தேர்",
+      "english": "chariot",
+      "pronunciation": "ther",
+      "meaning": "பாரம்பரிய இழுவை வண்டி",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3ce.svg",
+      "emoji": "🏎️",
+      "animation": "chariot"
+    },
+    {
+      "tamil": "படகு",
+      "english": "boat",
+      "pronunciation": "padagu",
+      "meaning": "தண்ணீரில் செல்லும் வாகனம்",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6a3.svg",
+      "emoji": "🚣",
+      "animation": "boat"
+    },
+    {
+      "tamil": "ஏணி",
+      "english": "ladder",
+      "pronunciation": "eni",
+      "meaning": "மேலே ஏறும் கருவி",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1fa9c.svg",
+      "emoji": "🪜",
+      "animation": "ladder"
+    },
+    {
+      "tamil": "குதிரை வண்டி",
+      "english": "cart",
+      "pronunciation": "kuthirai vandi",
+      "meaning": "விலங்கு இழுக்கும் வண்டி",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6f5.svg",
+      "emoji": "🛵",
+      "animation": "cart"
+    },
+    {
+      "tamil": "விமானம்",
+      "english": "airplane",
+      "pronunciation": "vimaanam",
+      "meaning": "வானத்தில் பறக்கும் வாகனம்",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2708.svg",
+      "emoji": "✈️",
+      "animation": "airplane"
+    },
+    {
+      "tamil": "இரயில்",
+      "english": "train",
+      "pronunciation": "irayil",
+      "meaning": "தண்டவாளத்தில் ஓடும் வாகனம்",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f686.svg",
+      "emoji": "🚆",
+      "animation": "train"
+    },
+    {
+      "tamil": "மிதிவண்டி",
+      "english": "bicycle",
+      "pronunciation": "mithivandi",
+      "meaning": "கால் சக்தியில் செல்லும் வண்டி",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6b2.svg",
+      "emoji": "🚲",
+      "animation": "bicycle"
+    },
+    {
+      "tamil": "பேருந்து",
+      "english": "bus",
+      "pronunciation": "perunthu",
+      "meaning": "பலருக்கான பெரிய வாகனம்",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f68c.svg",
+      "emoji": "🚌",
+      "animation": "bus"
+    },
+    {
+      "tamil": "நடைபாதை",
+      "english": "sidewalk",
+      "pronunciation": "nadaipaathai",
+      "meaning": "மனிதர்கள் நடக்கும் வழி",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6b6.svg",
+      "emoji": "🚶",
+      "animation": "sidewalk"
+    },
+    {
+      "tamil": "பாலம்",
+      "english": "bridge",
+      "pronunciation": "paalam",
+      "meaning": "ஆற்றின் மீது கட்டப்பட்ட வழி",
+      "category": "போக்குவரத்து",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f309.svg",
+      "emoji": "🌉",
+      "animation": "bridge"
+    }
+  ],
+  "music": [
+    {
+      "tamil": "வீணை",
+      "english": "veena",
+      "pronunciation": "veenai",
+      "meaning": "தமிழ் இசைக்கருவி",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3b5.svg",
+      "emoji": "🎵",
+      "animation": "veena"
+    },
+    {
+      "tamil": "தபலா",
+      "english": "tabla",
+      "pronunciation": "tabalaa",
+      "meaning": "இரட்டை தாள வாத்யம்",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f941.svg",
+      "emoji": "🥁",
+      "animation": "tabla"
+    },
+    {
+      "tamil": "நாதஸ்வரம்",
+      "english": "nadaswaram",
+      "pronunciation": "naathaswaram",
+      "meaning": "தமிழ் குழல் இசைக்கருவி",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3ba.svg",
+      "emoji": "🎺",
+      "animation": "nadaswaram"
+    },
+    {
+      "tamil": "ஓவியம்",
+      "english": "painting",
+      "pronunciation": "oviyam",
+      "meaning": "வண்ணங்களால் வரையும் கலை",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3a8.svg",
+      "emoji": "🎨",
+      "animation": "painting"
+    },
+    {
+      "tamil": "சிற்பம்",
+      "english": "sculpture",
+      "pronunciation": "sirpam",
+      "meaning": "கல்லில் செதுக்கும் கலை",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f5ff.svg",
+      "emoji": "🗿",
+      "animation": "sculpture"
+    },
+    {
+      "tamil": "கம்மல்",
+      "english": "flute",
+      "pronunciation": "kammal",
+      "meaning": "மூச்சுக் காற்றால் வாசிக்கும் கருவி",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f939.svg",
+      "emoji": "🤹",
+      "animation": "flute"
+    },
+    {
+      "tamil": "பாடல்",
+      "english": "song",
+      "pronunciation": "paadal",
+      "meaning": "குரல் இசை",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3b6.svg",
+      "emoji": "🎶",
+      "animation": "song"
+    },
+    {
+      "tamil": "முழவு",
+      "english": "drum",
+      "pronunciation": "muzhavu",
+      "meaning": "தோலால் மூடப்பட்ட தாள வாத்யம்",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f941.svg",
+      "emoji": "🥁",
+      "animation": "drum"
+    },
+    {
+      "tamil": "கலைஞன்",
+      "english": "artist",
+      "pronunciation": "kalaignan",
+      "meaning": "கலை படைப்பவன்",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9d1-200d-1f3a8.svg",
+      "emoji": "🧑‍🎨",
+      "animation": "artist"
+    },
+    {
+      "tamil": "கூத்தாடி",
+      "english": "dancer",
+      "pronunciation": "koothaadi",
+      "meaning": "நடனம் ஆடுபவர்",
+      "category": "இசை",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f483.svg",
+      "emoji": "💃",
+      "animation": "dancer"
+    }
+  ],
+  "activities": [
+    {
+      "tamil": "குளித்தல்",
+      "english": "bathing",
+      "pronunciation": "kulithal",
+      "meaning": "உடலை சுத்தம் செய்தல்",
+      "category": "நாள்வழக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6c1.svg",
+      "emoji": "🛁",
+      "animation": "bathing"
+    },
+    {
+      "tamil": "பல் துலக்குதல்",
+      "english": "brushing teeth",
+      "pronunciation": "pal thulukkuthal",
+      "meaning": "பற்களை சுத்தம் செய்தல்",
+      "category": "நாள்வழக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1faa5.svg",
+      "emoji": "🪥",
+      "animation": "brushing"
+    },
+    {
+      "tamil": "சீப்பு பிடித்தல்",
+      "english": "combing hair",
+      "pronunciation": "seepu pidithal",
+      "meaning": "தலைமுடி சீர்படுத்துதல்",
+      "category": "நாளொழுக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9f0.svg",
+      "emoji": "🧰",
+      "animation": "combing"
+    },
+    {
+      "tamil": "உடை அணிதல்",
+      "english": "dressing up",
+      "pronunciation": "udai anithal",
+      "meaning": "ஆடைகள் அணிந்துகொள்ளுதல்",
+      "category": "நாளொழுக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f455.svg",
+      "emoji": "👕",
+      "animation": "dressing"
+    },
+    {
+      "tamil": "சமையல் செய்தல்",
+      "english": "cooking",
+      "pronunciation": "samaiyal seythal",
+      "meaning": "உணவு தயாரித்தல்",
+      "category": "நாளொழுக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f373.svg",
+      "emoji": "🍳",
+      "animation": "cooking"
+    },
+    {
+      "tamil": "தூய்மை செய்தல்",
+      "english": "cleaning",
+      "pronunciation": "thooymai seythal",
+      "meaning": "வீட்டை சுத்தம் செய்தல்",
+      "category": "நாளொழுக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9fd.svg",
+      "emoji": "🧽",
+      "animation": "cleaning"
+    },
+    {
+      "tamil": "தோட்ட வேலை",
+      "english": "gardening",
+      "pronunciation": "thotta velai",
+      "meaning": "செடி வளர்த்தல்",
+      "category": "நாளொழுக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f331.svg",
+      "emoji": "🌱",
+      "animation": "gardening"
+    },
+    {
+      "tamil": "பிராத்தனை",
+      "english": "praying",
+      "pronunciation": "prarthana",
+      "meaning": "கடவுளை வணங்குதல்",
+      "category": "நாளொழுக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f64f.svg",
+      "emoji": "🙏",
+      "animation": "praying"
+    },
+    {
+      "tamil": "ஊர்ச்சுற்றல்",
+      "english": "walking around",
+      "pronunciation": "oorchuttral",
+      "meaning": "வெளியில் உலாவுதல்",
+      "category": "நாளொழுக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6b6.svg",
+      "emoji": "🚶",
+      "animation": "walking"
+    },
+    {
+      "tamil": "நேரம் பார்த்தல்",
+      "english": "checking time",
+      "pronunciation": "neram paarthal",
+      "meaning": "கடிகாரம் பார்த்தல்",
+      "category": "நாளொழுக்கம்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f550.svg",
+      "emoji": "🕐",
+      "animation": "time"
+    }
+  ],
+  "directions": [
+    {
+      "tamil": "வடக்கு",
+      "english": "north",
+      "pronunciation": "vadakku",
+      "meaning": "வட திசை",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9ed.svg",
+      "emoji": "🧭",
+      "animation": "north"
+    },
+    {
+      "tamil": "தெற்கு",
+      "english": "south",
+      "pronunciation": "therku",
+      "meaning": "தென் திசை",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9ed.svg",
+      "emoji": "🧭",
+      "animation": "south"
+    },
+    {
+      "tamil": "கிழக்கு",
+      "english": "east",
+      "pronunciation": "kizhakku",
+      "meaning": "கீழ் திசை",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9ed.svg",
+      "emoji": "🧭",
+      "animation": "east"
+    },
+    {
+      "tamil": "மேற்கு",
+      "english": "west",
+      "pronunciation": "merku",
+      "meaning": "மேல் திசை",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9ed.svg",
+      "emoji": "🧭",
+      "animation": "west"
+    },
+    {
+      "tamil": "ஊர்",
+      "english": "village",
+      "pronunciation": "oor",
+      "meaning": "சிறிய குடியிருப்பு",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3d8.svg",
+      "emoji": "🏘️",
+      "animation": "village"
+    },
+    {
+      "tamil": "கடை",
+      "english": "shop",
+      "pronunciation": "kadai",
+      "meaning": "பொருட்கள் விற்கும் இடம்",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3ea.svg",
+      "emoji": "🏪",
+      "animation": "shop"
+    },
+    {
+      "tamil": "கோயில்",
+      "english": "temple",
+      "pronunciation": "koyil",
+      "meaning": "கடவுள் வாழும் இடம்",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6d5.svg",
+      "emoji": "🛕",
+      "animation": "temple"
+    },
+    {
+      "tamil": "பள்ளிக்கூடம்",
+      "english": "school",
+      "pronunciation": "pallikoodam",
+      "meaning": "கல்வி கற்கும் இடம்",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3eb.svg",
+      "emoji": "🏫",
+      "animation": "school"
+    },
+    {
+      "tamil": "மருத்துவமனை",
+      "english": "hospital",
+      "pronunciation": "maruthuvamanai",
+      "meaning": "நோயாளிகள் சிகிச்சை பெறும் இடம்",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3e5.svg",
+      "emoji": "🏥",
+      "animation": "hospital"
+    },
+    {
+      "tamil": "தோட்டம்",
+      "english": "garden",
+      "pronunciation": "thottam",
+      "meaning": "பூ செடி வளர்க்கும் இடம்",
+      "category": "திசைகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3de.svg",
+      "emoji": "🏞️",
+      "animation": "garden"
+    }
+  ],
+  "tools": [
+    {
+      "tamil": "சுத்தியல்",
+      "english": "hammer",
+      "pronunciation": "suthiyal",
+      "meaning": "அடிக்கும் கருவி",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f528.svg",
+      "emoji": "🔨",
+      "animation": "hammer"
+    },
+    {
+      "tamil": "அரிவாள்",
+      "english": "sickle",
+      "pronunciation": "arivaal",
+      "meaning": "வெட்டும் கருவி",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f52a.svg",
+      "emoji": "🔪",
+      "animation": "sickle"
+    },
+    {
+      "tamil": "கோடரி",
+      "english": "axe",
+      "pronunciation": "kodari",
+      "meaning": "மரம் வெட்டும் கருவி",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1fa93.svg",
+      "emoji": "🪓",
+      "animation": "axe"
+    },
+    {
+      "tamil": "கயிறு",
+      "english": "rope",
+      "pronunciation": "kayiru",
+      "meaning": "கட்டுவதற்கான நார்",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3cf.svg",
+      "emoji": "🏏",
+      "animation": "rope"
+    },
+    {
+      "tamil": "வாளி",
+      "english": "bucket",
+      "pronunciation": "vaali",
+      "meaning": "தண்ணீர் எடுக்கும் பாத்திரம்",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1faa3.svg",
+      "emoji": "🪣",
+      "animation": "bucket"
+    },
+    {
+      "tamil": "சீப்பு",
+      "english": "comb",
+      "pronunciation": "seepu",
+      "meaning": "தலைமுடி சீர்படுத்தும் கருவி",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9f0.svg",
+      "emoji": "🧰",
+      "animation": "comb"
+    },
+    {
+      "tamil": "கண்ணாடி",
+      "english": "mirror",
+      "pronunciation": "kannaadi",
+      "meaning": "முகம் பார்க்கும் பொருள்",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1fa9e.svg",
+      "emoji": "🪞",
+      "animation": "mirror"
+    },
+    {
+      "tamil": "விளக்கு",
+      "english": "lamp",
+      "pronunciation": "vilakku",
+      "meaning": "ஒளி தரும் பொருள்",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4a1.svg",
+      "emoji": "💡",
+      "animation": "lamp"
+    },
+    {
+      "tamil": "தாம்பு",
+      "english": "fan",
+      "pronunciation": "thambu",
+      "meaning": "காற்று அடிக்கும் கருவி",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1faad.svg",
+      "emoji": "🪭",
+      "animation": "fan"
+    },
+    {
+      "tamil": "சாவி",
+      "english": "key",
+      "pronunciation": "saavi",
+      "meaning": "பூட்டு திறக்கும் கருவி",
+      "category": "கருவிகள்",
+      "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f511.svg",
+      "emoji": "🔑",
+      "animation": "key"
     }
   ]
 }

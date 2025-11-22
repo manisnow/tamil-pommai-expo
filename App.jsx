@@ -125,7 +125,13 @@ const getCategoryDisplayName = () => {
     "objects": "பொருட்கள்",
     "actions": "செயல்கள்",
     "weather": "வானிலை",
-    "emotions": "உணர்ச்சிகள்"
+    "emotions": "உணர்ச்சிகள்",
+    "clothing": "ஆடைகள்",
+    "transport": "போக்குவரத்து",
+    "music": "இசை",
+    "activities": "நாள்வழக்கம்",
+    "directions": "திசைகள்",
+    "tools": "கருவிகள்"
   };
 };
 

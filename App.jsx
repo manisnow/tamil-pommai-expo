@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Platform, Animated, Dimensions } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Platform, Animated, Dimensions, Image } from "react-native";
 import SpeechAdapter from "./src/utils/SpeechAdapter";
 import LottieWrapper from "./src/components/LottieWrapper";
 
@@ -15,6 +15,27 @@ import danceAnim from "./assets/dance.json";
 import jumpAnim from "./assets/jump.json";
 import runAnim from "./assets/run1.json";
 import tamilLettersData from "./assets/tamil-letters.json";
+import tamilWordsData from "./assets/tamil-words.json";
+
+// Flatten Tamil words from all categories into a single array
+const createTamilWordsArray = () => {
+  const allWords = [];
+  Object.keys(tamilWordsData).forEach(category => {
+    tamilWordsData[category].forEach(word => {
+      allWords.push({
+        ...word,
+        triggers: [
+          word.tamil,
+          word.english,
+          word.pronunciation
+        ]
+      });
+    });
+  });
+  return allWords;
+};
+
+const tamilWords = createTamilWordsArray();
 
 const animations = { sit: sitAnim, walk: walkAnim, dance: danceAnim, jump: jumpAnim, run: runAnim };
 
@@ -103,7 +124,9 @@ export default function App() {
   const [current, setCurrent] = useState("sit");
   const [listening, setListening] = useState(false);
   const [currentLetter, setCurrentLetter] = useState(null); // For displaying Tamil letters
+  const [currentWord, setCurrentWord] = useState(null); // For displaying Tamil words with images
   const [showLetter, setShowLetter] = useState(false); // Toggle between animation and letter view
+  const [showWord, setShowWord] = useState(false); // Toggle for showing word images
   const adapterRef = useRef(SpeechAdapter);
   const messageTimeoutRef = useRef(null);
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -124,14 +147,42 @@ export default function App() {
       
       // First, try exact matches for complete words
       for (const word of words) {
-        // Check for letter matches first
+        // Check for Tamil word matches first
+        for (const wordInfo of tamilWords) {
+          for (const trigger of wordInfo.triggers) {
+            const normalizedTrigger = normalizeText(trigger);
+            if (word === normalizedTrigger) {
+              console.log(`✅ Tamil word match found: "${word}" === "${normalizedTrigger}" → ${wordInfo.tamil} (${wordInfo.english})`);
+              setCurrentWord(wordInfo);
+              setShowWord(true);
+              setShowLetter(false);
+              setMessage(`சொல்: ${wordInfo.tamil} (${wordInfo.english}) - ${wordInfo.meaning}`);
+              
+              // Clear success message after 4 seconds but keep word displayed
+              if (messageTimeoutRef.current) {
+                clearTimeout(messageTimeoutRef.current);
+              }
+              messageTimeoutRef.current = setTimeout(() => {
+                if (listening) {
+                  setMessage("தொடர்ந்து கேட்கப்படுகிறது... எந்த நேரமும் பேசலாம்!");
+                }
+              }, 4000);
+              
+              return;
+            }
+          }
+        }
+        
+        // Check for letter matches
         for (const letterInfo of letterMap) {
           for (const trigger of letterInfo.triggers) {
             const normalizedTrigger = normalizeText(trigger);
             if (word === normalizedTrigger) {
               console.log(`✅ Letter match found: "${word}" === "${normalizedTrigger}" → ${letterInfo.letter}`);
               setCurrentLetter(letterInfo);
+              setCurrentWord(null);
               setShowLetter(true);
+              setShowWord(false);
               setMessage(`எழுத்து: ${letterInfo.letter} (${letterInfo.name})`);
               
               // Clear success message after 3 seconds but keep letter displayed
@@ -156,7 +207,10 @@ export default function App() {
             if (word === normalizedTrigger) {
               console.log(`✅ Exact match found: "${word}" === "${normalizedTrigger}" → ${command.key}`);
               setCurrent(command.key);
+              setCurrentWord(null);
+              setCurrentLetter(null);
               setShowLetter(false);
+              setShowWord(false);
               setMessage(`கட்டளை: ${trigger} → ${command.key}`);
               
               // Clear success message after 2 seconds
@@ -368,7 +422,15 @@ export default function App() {
 
         <Text style={styles.title}>தமிழ் பொம்மை விளையாட்டு 🎭</Text>
 
-        {showLetter && currentLetter ? (
+        {showWord && currentWord ? (
+          <View style={styles.wordContainer}>
+            <Image source={{ uri: currentWord.imageUrl }} style={styles.wordImage} />
+            <Text style={styles.wordTamil}>{currentWord.tamil}</Text>
+            <Text style={styles.wordEnglish}>{currentWord.english}</Text>
+            <Text style={styles.wordMeaning}>{currentWord.meaning}</Text>
+            <Text style={styles.wordCategory}>{currentWord.category}</Text>
+          </View>
+        ) : showLetter && currentLetter ? (
           <View style={styles.letterContainer}>
             <Text style={styles.letterDisplay}>{currentLetter.letter}</Text>
             <Text style={styles.letterName}>{currentLetter.name}</Text>
@@ -450,6 +512,58 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#6c757d",
     textAlign: "center"
+  },
+  wordContainer: {
+    width: 320,
+    height: 400,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#f8f9fa",
+    borderRadius: 20,
+    borderWidth: 3,
+    borderColor: "#28a745",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5,
+    padding: 15
+  },
+  wordImage: {
+    width: 200,
+    height: 150,
+    borderRadius: 15,
+    marginBottom: 15,
+    objectFit: "cover"
+  },
+  wordTamil: {
+    fontSize: 36,
+    fontWeight: "bold",
+    color: "#28a745",
+    textAlign: "center",
+    marginBottom: 8
+  },
+  wordEnglish: {
+    fontSize: 24,
+    fontWeight: "600",
+    color: "#495057",
+    textAlign: "center",
+    marginBottom: 5
+  },
+  wordMeaning: {
+    fontSize: 16,
+    color: "#6c757d",
+    textAlign: "center",
+    marginBottom: 5
+  },
+  wordCategory: {
+    fontSize: 14,
+    color: "#007bff",
+    textAlign: "center",
+    backgroundColor: "#e3f2fd",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12
   },
   title: { fontSize: 24, marginBottom: 8, fontWeight: "600" },
   button: { backgroundColor: "#ffcc00", paddingHorizontal: 18, paddingVertical: 10, borderRadius: 10, marginTop: 12 },

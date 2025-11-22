@@ -1,0 +1,519 @@
+{
+  "nature": [
+    {
+      "tamil": "இலை",
+      "english": "leaf",
+      "pronunciation": "ilai",
+      "meaning": "A green part of a plant",
+      "category": "nature",
+      "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=300&fit=crop",
+      "animation": "leaf"
+    },
+    {
+      "tamil": "மரம்",
+      "english": "tree",
+      "pronunciation": "maram",
+      "meaning": "A tall woody plant",
+      "category": "nature",
+      "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop",
+      "animation": "tree"
+    },
+    {
+      "tamil": "பூ",
+      "english": "flower",
+      "pronunciation": "poo",
+      "meaning": "The colorful part of a plant",
+      "category": "nature",
+      "imageUrl": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=300&h=300&fit=crop",
+      "animation": "flower"
+    },
+    {
+      "tamil": "நீர்",
+      "english": "water",
+      "pronunciation": "neer",
+      "meaning": "Clear liquid essential for life",
+      "category": "nature",
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=300&h=300&fit=crop",
+      "animation": "water"
+    },
+    {
+      "tamil": "கல்",
+      "english": "stone",
+      "pronunciation": "kal",
+      "meaning": "Hard solid mineral matter",
+      "category": "nature",
+      "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=300&fit=crop",
+      "animation": "stone"
+    }
+  ],
+  "animals": [
+    {
+      "tamil": "பூனை",
+      "english": "cat",
+      "pronunciation": "poonai",
+      "meaning": "Small domesticated carnivorous mammal",
+      "category": "animals",
+      "imageUrl": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&h=300&fit=crop",
+      "animation": "cat"
+    },
+    {
+      "tamil": "நாய்",
+      "english": "dog",
+      "pronunciation": "naai",
+      "meaning": "Domesticated carnivorous mammal",
+      "category": "animals",
+      "imageUrl": "https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&h=300&fit=crop",
+      "animation": "dog"
+    },
+    {
+      "tamil": "பறவை",
+      "english": "bird",
+      "pronunciation": "paravai",
+      "meaning": "Feathered flying animal",
+      "category": "animals",
+      "imageUrl": "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=300&h=300&fit=crop",
+      "animation": "bird"
+    },
+    {
+      "tamil": "மீன்",
+      "english": "fish",
+      "pronunciation": "meen",
+      "meaning": "Aquatic animal with gills",
+      "category": "animals",
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=300&h=300&fit=crop",
+      "animation": "fish"
+    },
+    {
+      "tamil": "யானை",
+      "english": "elephant",
+      "pronunciation": "yaanai",
+      "meaning": "Large mammal with trunk",
+      "category": "animals",
+      "imageUrl": "https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=300&h=300&fit=crop",
+      "animation": "elephant"
+    }
+  ],
+  "family": [
+    {
+      "tamil": "அம்மா",
+      "english": "mother",
+      "pronunciation": "amma",
+      "meaning": "Female parent",
+      "category": "family",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop",
+      "animation": "mother"
+    },
+    {
+      "tamil": "அப்பா",
+      "english": "father",
+      "pronunciation": "appa",
+      "meaning": "Male parent",
+      "category": "family",
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+      "animation": "father"
+    },
+    {
+      "tamil": "தங்கை",
+      "english": "younger sister",
+      "pronunciation": "thangai",
+      "meaning": "Female sibling younger than you",
+      "category": "family",
+      "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop",
+      "animation": "sister"
+    },
+    {
+      "tamil": "அண்ணன்",
+      "english": "elder brother",
+      "pronunciation": "annan",
+      "meaning": "Male sibling older than you",
+      "category": "family",
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+      "animation": "brother"
+    },
+    {
+      "tamil": "தாத்தா",
+      "english": "grandfather",
+      "pronunciation": "thaathaa",
+      "meaning": "Father's father",
+      "category": "family",
+      "imageUrl": "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=300&h=300&fit=crop",
+      "animation": "grandfather"
+    }
+  ],
+  "body": [
+    {
+      "tamil": "கண்",
+      "english": "eye",
+      "pronunciation": "kan",
+      "meaning": "Organ of sight",
+      "category": "body",
+      "imageUrl": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=300&fit=crop",
+      "animation": "eye"
+    },
+    {
+      "tamil": "கை",
+      "english": "hand",
+      "pronunciation": "kai",
+      "meaning": "End part of the arm",
+      "category": "body",
+      "imageUrl": "https://images.unsplash.com/photo-1559757174-f2dfa9c3b5d4?w=300&h=300&fit=crop",
+      "animation": "hand"
+    },
+    {
+      "tamil": "கால்",
+      "english": "leg",
+      "pronunciation": "kaal",
+      "meaning": "Lower limb of the body",
+      "category": "body",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop",
+      "animation": "leg"
+    },
+    {
+      "tamil": "தலை",
+      "english": "head",
+      "pronunciation": "thalai",
+      "meaning": "Upper part of the body",
+      "category": "body",
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+      "animation": "head"
+    },
+    {
+      "tamil": "மூக்கு",
+      "english": "nose",
+      "pronunciation": "mookku",
+      "meaning": "Organ of smell",
+      "category": "body",
+      "imageUrl": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=300&fit=crop",
+      "animation": "nose"
+    }
+  ],
+  "food": [
+    {
+      "tamil": "சாதம்",
+      "english": "rice",
+      "pronunciation": "saatham",
+      "meaning": "Cooked rice, staple food",
+      "category": "food",
+      "imageUrl": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&h=300&fit=crop",
+      "animation": "rice"
+    },
+    {
+      "tamil": "பால்",
+      "english": "milk",
+      "pronunciation": "paal",
+      "meaning": "White liquid from animals",
+      "category": "food",
+      "imageUrl": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=300&h=300&fit=crop",
+      "animation": "milk"
+    },
+    {
+      "tamil": "பழம்",
+      "english": "fruit",
+      "pronunciation": "pazham",
+      "meaning": "Sweet produce of a tree",
+      "category": "food",
+      "imageUrl": "https://images.unsplash.com/photo-1590005354167-6da97870c757?w=300&h=300&fit=crop",
+      "animation": "fruit"
+    },
+    {
+      "tamil": "தண்ணீர்",
+      "english": "water",
+      "pronunciation": "thanneer",
+      "meaning": "Drinking water",
+      "category": "food",
+      "imageUrl": "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=300&h=300&fit=crop",
+      "animation": "water"
+    },
+    {
+      "tamil": "இனிப்பு",
+      "english": "sweet",
+      "pronunciation": "inippu",
+      "meaning": "Sweet food item",
+      "category": "food",
+      "imageUrl": "https://images.unsplash.com/photo-1587668178277-295251f900ce?w=300&h=300&fit=crop",
+      "animation": "sweet"
+    }
+  ],
+  "colors": [
+    {
+      "tamil": "சிவப்பு",
+      "english": "red",
+      "pronunciation": "sivappu",
+      "meaning": "Color of blood",
+      "category": "colors",
+      "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+      "animation": "red"
+    },
+    {
+      "tamil": "பச்சை",
+      "english": "green",
+      "pronunciation": "pachai",
+      "meaning": "Color of leaves",
+      "category": "colors",
+      "imageUrl": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=300&fit=crop",
+      "animation": "green"
+    },
+    {
+      "tamil": "நீலம்",
+      "english": "blue",
+      "pronunciation": "neelam",
+      "meaning": "Color of sky",
+      "category": "colors",
+      "imageUrl": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&h=300&fit=crop",
+      "animation": "blue"
+    },
+    {
+      "tamil": "மஞ்சள்",
+      "english": "yellow",
+      "pronunciation": "manjal",
+      "meaning": "Color of turmeric",
+      "category": "colors",
+      "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop",
+      "animation": "yellow"
+    },
+    {
+      "tamil": "வெள்ளை",
+      "english": "white",
+      "pronunciation": "vellai",
+      "meaning": "Color of milk",
+      "category": "colors",
+      "imageUrl": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&h=300&fit=crop",
+      "animation": "white"
+    }
+  ],
+  "numbers": [
+    {
+      "tamil": "ஒன்று",
+      "english": "one",
+      "pronunciation": "ondru",
+      "meaning": "Number 1",
+      "category": "numbers",
+      "imageUrl": "https://images.unsplash.com/photo-1594736797933-d0401ba880d6?w=300&h=300&fit=crop",
+      "animation": "one"
+    },
+    {
+      "tamil": "இரண்டு",
+      "english": "two",
+      "pronunciation": "irandu",
+      "meaning": "Number 2",
+      "category": "numbers",
+      "imageUrl": "https://images.unsplash.com/photo-1594736797933-d0401ba880d6?w=300&h=300&fit=crop",
+      "animation": "two"
+    },
+    {
+      "tamil": "மூன்று",
+      "english": "three",
+      "pronunciation": "moondru",
+      "meaning": "Number 3",
+      "category": "numbers",
+      "imageUrl": "https://images.unsplash.com/photo-1594736797933-d0401ba880d6?w=300&h=300&fit=crop",
+      "animation": "three"
+    },
+    {
+      "tamil": "நான்கு",
+      "english": "four",
+      "pronunciation": "naangu",
+      "meaning": "Number 4",
+      "category": "numbers",
+      "imageUrl": "https://images.unsplash.com/photo-1594736797933-d0401ba880d6?w=300&h=300&fit=crop",
+      "animation": "four"
+    },
+    {
+      "tamil": "ஐந்து",
+      "english": "five",
+      "pronunciation": "ainthu",
+      "meaning": "Number 5",
+      "category": "numbers",
+      "imageUrl": "https://images.unsplash.com/photo-1594736797933-d0401ba880d6?w=300&h=300&fit=crop",
+      "animation": "five"
+    }
+  ],
+  "objects": [
+    {
+      "tamil": "புத்தகம்",
+      "english": "book",
+      "pronunciation": "puththagam",
+      "meaning": "Collection of written pages",
+      "category": "objects",
+      "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=300&fit=crop",
+      "animation": "book"
+    },
+    {
+      "tamil": "பென்சில்",
+      "english": "pencil",
+      "pronunciation": "pensil",
+      "meaning": "Writing instrument",
+      "category": "objects",
+      "imageUrl": "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=300&h=300&fit=crop",
+      "animation": "pencil"
+    },
+    {
+      "tamil": "பந்து",
+      "english": "ball",
+      "pronunciation": "panthu",
+      "meaning": "Round object for games",
+      "category": "objects",
+      "imageUrl": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=300&fit=crop",
+      "animation": "ball"
+    },
+    {
+      "tamil": "கார்",
+      "english": "car",
+      "pronunciation": "kaar",
+      "meaning": "Motor vehicle",
+      "category": "objects",
+      "imageUrl": "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=300&h=300&fit=crop",
+      "animation": "car"
+    },
+    {
+      "tamil": "வீடு",
+      "english": "house",
+      "pronunciation": "veedu",
+      "meaning": "Building where people live",
+      "category": "objects",
+      "imageUrl": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&h=300&fit=crop",
+      "animation": "house"
+    }
+  ],
+  "actions": [
+    {
+      "tamil": "ஓடு",
+      "english": "run",
+      "pronunciation": "odu",
+      "meaning": "Move quickly on foot",
+      "category": "actions",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop",
+      "animation": "run"
+    },
+    {
+      "tamil": "நடை",
+      "english": "walk",
+      "pronunciation": "nadai",
+      "meaning": "Move at regular pace",
+      "category": "actions",
+      "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop",
+      "animation": "walk"
+    },
+    {
+      "tamil": "குதி",
+      "english": "jump",
+      "pronunciation": "kuthi",
+      "meaning": "Spring into the air",
+      "category": "actions",
+      "imageUrl": "https://images.unsplash.com/photo-1594736797933-d0401ba880d6?w=300&h=300&fit=crop",
+      "animation": "jump"
+    },
+    {
+      "tamil": "உட்கார்",
+      "english": "sit",
+      "pronunciation": "utkaar",
+      "meaning": "Rest in seated position",
+      "category": "actions",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop",
+      "animation": "sit"
+    },
+    {
+      "tamil": "நடனம்",
+      "english": "dance",
+      "pronunciation": "nadanam",
+      "meaning": "Move rhythmically",
+      "category": "actions",
+      "imageUrl": "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=300&h=300&fit=crop",
+      "animation": "dance"
+    }
+  ],
+  "weather": [
+    {
+      "tamil": "மழை",
+      "english": "rain",
+      "pronunciation": "mazhai",
+      "meaning": "Water falling from clouds",
+      "category": "weather",
+      "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop",
+      "animation": "rain"
+    },
+    {
+      "tamil": "காற்று",
+      "english": "wind",
+      "pronunciation": "kaatru",
+      "meaning": "Moving air",
+      "category": "weather",
+      "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop",
+      "animation": "wind"
+    },
+    {
+      "tamil": "வெயில்",
+      "english": "sun",
+      "pronunciation": "veyil",
+      "meaning": "Bright sunlight",
+      "category": "weather",
+      "imageUrl": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=300&h=300&fit=crop",
+      "animation": "sun"
+    },
+    {
+      "tamil": "மேகம்",
+      "english": "cloud",
+      "pronunciation": "megam",
+      "meaning": "Water vapor in sky",
+      "category": "weather",
+      "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop",
+      "animation": "cloud"
+    },
+    {
+      "tamil": "இடி",
+      "english": "thunder",
+      "pronunciation": "idi",
+      "meaning": "Sound during storm",
+      "category": "weather",
+      "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop",
+      "animation": "thunder"
+    }
+  ],
+  "emotions": [
+    {
+      "tamil": "சந்தோஷம்",
+      "english": "happiness",
+      "pronunciation": "santhosham",
+      "meaning": "Feeling of joy",
+      "category": "emotions",
+      "imageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300&h=300&fit=crop",
+      "animation": "happy"
+    },
+    {
+      "tamil": "கோபம்",
+      "english": "anger",
+      "pronunciation": "kopam",
+      "meaning": "Feeling of rage",
+      "category": "emotions",
+      "imageUrl": "https://images.unsplash.com/photo-1594736797933-d0401ba880d6?w=300&h=300&fit=crop",
+      "animation": "angry"
+    },
+    {
+      "tamil": "அழுகை",
+      "english": "crying",
+      "pronunciation": "azhukai",
+      "meaning": "Shedding tears",
+      "category": "emotions",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop",
+      "animation": "cry"
+    },
+    {
+      "tamil": "பயம்",
+      "english": "fear",
+      "pronunciation": "payam",
+      "meaning": "Feeling afraid",
+      "category": "emotions",
+      "imageUrl": "https://images.unsplash.com/photo-1594736797933-d0401ba880d6?w=300&h=300&fit=crop",
+      "animation": "fear"
+    },
+    {
+      "tamil": "அன்பு",
+      "english": "love",
+      "pronunciation": "anbu",
+      "meaning": "Deep affection",
+      "category": "emotions",
+      "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=300&fit=crop",
+      "animation": "love"
+    }
+  ]
+}

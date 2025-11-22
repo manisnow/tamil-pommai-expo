@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Platform, Animated, Dimensions, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Platform, Image } from "react-native";
 import SpeechAdapter from "./src/utils/SpeechAdapter";
 import LottieWrapper from "./src/components/LottieWrapper";
 
@@ -112,28 +112,6 @@ const createLetterMap = () => {
 
 const letterMap = createLetterMap();
 
-// Create scrolling text with categories and animation commands
-const createCategoryScrollingText = () => {
-  // Animation commands
-  const animationCommands = [
-    "உக்காரு (Sit)", "நடை (Walk)", "நடனமாடு (Dance)", "குதி (Jump)", "ஓடு (Run)"
-  ];
-  
-  // Category names in Tamil
-  const categories = [
-    "இயற்கை (Nature)", "விலங்குகள் (Animals)", "குடும்பம் (Family)", 
-    "உடல் (Body)", "உணவு (Food)", "நிறங்கள் (Colors)",
-    "எண்கள் (Numbers)", "பொருட்கள் (Objects)", "செயல்கள் (Actions)",
-    "வானிலை (Weather)", "உணர்ச்சிகள் (Emotions)"
-  ];
-  
-  // Combine animation commands and categories
-  const allItems = [...animationCommands, ...categories];
-  
-  // Create the scrolling text with bullet separators
-  return allItems.join("   •   ") + "   •   " + allItems.slice(0, 8).join("   •   ");
-};
-
 // Get category display name mapping
 const getCategoryDisplayName = () => {
   return {
@@ -170,8 +148,6 @@ export default function App() {
   const [showCategoryWords, setShowCategoryWords] = useState(false); // Toggle for showing category words
   const adapterRef = useRef(SpeechAdapter);
   const messageTimeoutRef = useRef(null);
-  const scrollX = useRef(new Animated.Value(0)).current;
-  const screenWidth = Dimensions.get('window').width;
 
   useEffect(() => {
     try { adapterRef.current.init(); } catch (e) { console.warn(e); }
@@ -389,40 +365,7 @@ export default function App() {
       console.error('🚨 Speech adapter error:', e); 
       setMessage("குரல் பிழை"); 
     });
-
-    // Start scrolling animation
-    const startScrolling = () => {
-      scrollX.setValue(screenWidth);
-      
-      const scrollAnimation = Animated.loop(
-        Animated.sequence([
-          Animated.timing(scrollX, {
-            toValue: -1000, // Move off screen to the left
-            duration: 20000, // 20 seconds for full scroll
-            useNativeDriver: true,
-          }),
-          Animated.timing(scrollX, {
-            toValue: screenWidth, // Reset to start position
-            duration: 0, // Instant reset
-            useNativeDriver: true,
-          }),
-        ]),
-        {
-          iterations: -1, // Infinite loop
-        }
-      );
-      
-      scrollAnimation.start();
-      
-      // Return cleanup function
-      return () => scrollAnimation.stop();
-    };
-
-    const cleanup = startScrolling();
-    
-    // Cleanup on unmount
-    return cleanup;
-  }, [screenWidth]);
+  }, []);
 
   const toggleListen = async () => {
     if (listening) {
@@ -447,32 +390,6 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.root}>
-      <View style={styles.scroller}>
-        <TouchableOpacity
-          onPress={() => {
-            // Handle category selection from scrolling text
-            setShowCategoryWords(!showCategoryWords);
-            if (!showCategoryWords) {
-              setSelectedCategory('nature'); // Default to first category
-            } else {
-              setSelectedCategory(null);
-            }
-          }}
-          style={styles.scrollerTouchable}
-        >
-          <Animated.Text 
-            style={[
-              styles.scrollerText, 
-              {
-                transform: [{ translateX: scrollX }]
-              }
-            ]}
-          >
-            {createCategoryScrollingText()}
-          </Animated.Text>
-        </TouchableOpacity>
-      </View>
-
       {/* Category Selection Buttons */}
       <View style={styles.categoryButtonsContainer}>
         {Object.keys(tamilWordsData).map((categoryKey) => {
@@ -590,23 +507,6 @@ const styles = StyleSheet.create({
     justifyContent: "center", 
     paddingHorizontal: 16,
     paddingVertical: 20
-  },
-  scroller: { 
-    width: "100%", 
-    height: 40, 
-    overflow: "hidden", 
-    backgroundColor: "#f5f5f5", 
-    borderBottomWidth: 2, 
-    borderBottomColor: "#ffcc00", 
-    justifyContent: "center",
-    position: "relative"
-  },
-  scrollerText: { 
-    fontSize: 18,
-    fontWeight: "600",
-    color: "#333",
-    position: "absolute",
-    whiteSpace: "nowrap"
   },
   letterContainer: {
     width: 300,
@@ -810,8 +710,5 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 14,
     fontWeight: "600"
-  },
-  scrollerTouchable: {
-    width: "100%"
   }
 });

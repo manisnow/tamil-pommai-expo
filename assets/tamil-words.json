@@ -51,9 +51,9 @@
       "emoji": "🪨"
     },
     {
-      "tamil": "சூரியன்",
+      "tamil": "கதிரவன்",
       "english": "sun",
-      "pronunciation": "sooryan",
+      "pronunciation": "kathiravan",
       "meaning": "வானத்தில் ஒளி தரும் கோள்",
       "category": "இயற்கை",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2600.svg",
@@ -61,9 +61,9 @@
       "emoji": "☀️"
     },
     {
-      "tamil": "சந்திரன்",
+      "tamil": "திங்கள்",
       "english": "moon",
-      "pronunciation": "sandhiran",
+      "pronunciation": "thingal",
       "meaning": "இரவில் ஒளி தரும் கோள்",
       "category": "இயற்கை", 
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f319.svg",
@@ -489,10 +489,10 @@
       "animation": "coconut"
     },
     {
-      "tamil": "சர்க்கரை",
+      "tamil": "கற்கண்டு",
       "english": "sugar",
-      "pronunciation": "sarkkarai",
-      "meaning": "இனிப்பு தரும் வெள்ளை தூள்",
+      "pronunciation": "karkandu",
+      "meaning": "இனிப்பு தரும் வெள்ளை கட்டிகள்",
       "category": "உணவு",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9c2.svg",
       "emoji": "🧂",
@@ -581,9 +581,9 @@
       "animation": "purple"
     },
     {
-      "tamil": "ஆரஞ்சு",
+      "tamil": "கமலாப்பு",
       "english": "orange",
-      "pronunciation": "aaranchu",
+      "pronunciation": "kamalaappu",
       "meaning": "கமலாப்பழத்தின் நிறம்",
       "category": "நிறங்கள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f7e0.svg",
@@ -805,9 +805,9 @@
       "animation": "phone"
     },
     {
-      "tamil": "கடிகாரம்",
+      "tamil": "நேரக்கருவி",
       "english": "clock",
-      "pronunciation": "kadikaaram",
+      "pronunciation": "nerakkaruvi",
       "meaning": "நேரம் காட்டும் கருவி",
       "category": "பொருட்கள்",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f570.svg",
@@ -857,9 +857,9 @@
       "animation": "sit"
     },
     {
-      "tamil": "நடனம்",
+      "tamil": "கூத்து",
       "english": "dance",
-      "pronunciation": "nadanam",
+      "pronunciation": "koothu",
       "meaning": "இசைக்கு ஏற்ப ஆடுதல்",
       "category": "செயல்கள்",
       "imageUrl": "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=300&h=300&fit=crop",
@@ -942,16 +942,16 @@
       "tamil": "வெயில்",
       "english": "sun",
       "pronunciation": "veyil",
-      "meaning": "சூரியன் ஒளி",
+      "meaning": "கதிரவன் ஒளி",
       "category": "வானிலை",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2600.svg",
       "emoji": "☀️",
       "animation": "sun"
     },
     {
-      "tamil": "மேகம்",
+      "tamil": "முகில்",
       "english": "cloud",
-      "pronunciation": "megam",
+      "pronunciation": "mukhil",
       "meaning": "வானத்தில் உள்ள நீராவி",
       "category": "வானிலை",
       "imageUrl": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2601.svg",

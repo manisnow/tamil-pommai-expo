@@ -112,6 +112,43 @@ const createLetterMap = () => {
 
 const letterMap = createLetterMap();
 
+// Create scrolling text that includes words from all categories
+const createScrollingText = () => {
+  // Get sample words from each category (2-3 words per category)
+  const scrollWords = [];
+  
+  // Animation commands
+  const animationCommands = [
+    "உக்காரு (Sit)", "நடை (Walk)", "நடனமாடு (Dance)", "குதி (Jump)", "ஓடு (Run)"
+  ];
+  
+  // Sample words from each category
+  const sampleWords = [
+    // Nature
+    "இலை (Leaf)", "மரம் (Tree)", "பூ (Flower)",
+    // Animals  
+    "பூனை (Cat)", "நாய் (Dog)", "யானை (Elephant)",
+    // Family
+    "அம்மா (Mother)", "அப்பா (Father)", "தங்கை (Sister)",
+    // Body
+    "கண் (Eye)", "கை (Hand)", "கால் (Leg)",
+    // Food
+    "சாதம் (Rice)", "பால் (Milk)", "பழம் (Fruit)",
+    // Colors
+    "சிவப்பு (Red)", "பச்சை (Green)", "நீலம் (Blue)",
+    // Numbers
+    "ஒன்று (One)", "இரண்டு (Two)", "மூன்று (Three)",
+    // Objects
+    "புத்தகம் (Book)", "பந்து (Ball)", "கார் (Car)"
+  ];
+  
+  // Combine animation commands and sample words
+  const allItems = [...animationCommands, ...sampleWords];
+  
+  // Create the scrolling text with bullet separators
+  return allItems.join("   •   ") + "   •   " + allItems.slice(0, 10).join("   •   ");
+};
+
 const normalizeText = (s = "") => 
   s.trim()
    .replaceAll(/[.,।\s]+/gu, " ")  // Replace Tamil and English punctuation with spaces
@@ -415,7 +452,7 @@ export default function App() {
             }
           ]}
         >
-          உக்காரு (Sit)   •   நடை (Walk)   •   நடனமாடு (Dance)   •   குதி (Jump)   •   ஓடு (Run)   •   அ ஆ இ ஈ உ ஊ (Letters)   •   க ங ச ஞ ட ண (Letters)   •   உக்காரு (Sit)   •   நடை (Walk)   •   நடனமாடு (Dance)   •   குதி (Jump)   •   ஓடு (Run)   •   அ ஆ இ ஈ உ ஊ (Letters)
+          {createScrollingText()}
         </Animated.Text>
       </View>
       
